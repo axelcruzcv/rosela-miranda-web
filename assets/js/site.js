@@ -1,3 +1,4 @@
+import './experience.js';
 import { CONTACT_ENDPOINT, PRIVACY_APPROVED } from './config.js';
 
 // Accessible, dependency-free mobile navigation.

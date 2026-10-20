@@ -101,3 +101,39 @@ a{color:inherit;text-decoration:none}button,input,textarea{font:inherit}button{c
 .rm-blog-content{padding:60px 25px 90px}.rm-blog-divider span{display:none}.rm-blog-empty{display:block;margin:35px 0}.rm-blog-empty img{width:145px}
 .rm-post-grid{grid-template-columns:1fr}
 }
+/* START modal and invitation — no external UI libraries */
+body.rm-modal-open{overflow:hidden}
+.rm-overlay[hidden]{display:none!important}
+.rm-overlay{position:fixed;z-index:900;inset:0;background:rgba(35,48,36,.57);display:grid;place-items:center;padding:20px;animation:rmBackdrop .25s ease both}
+@keyframes rmBackdrop{from{opacity:0}to{opacity:1}}
+.rm-modal{display:grid;grid-template-columns:33% 67%;position:relative;width:min(970px,100%);max-height:calc(100dvh - 40px);min-height:570px;overflow:auto;border-radius:14px;background:#f6f5ef;box-shadow:0 40px 120px #1e301e44;animation:rmEnter .35s var(--ease) both}
+@keyframes rmEnter{from{transform:translateY(15px);opacity:.2}to{transform:translateY(0);opacity:1}}
+.rm-modal-close{position:absolute;top:18px;right:20px;z-index:2;width:43px;height:43px;border-radius:50%;background:#faf9f5;border:1px solid #c8d0c5;color:#647061;font-size:26px;line-height:1}
+.rm-modal-aside{position:relative;overflow:hidden;background:#d7ded3;display:grid;place-items:center}
+.rm-modal-aside img{width:83%;height:80%;object-fit:contain;opacity:.7}
+.rm-modal-aside>span{position:absolute;bottom:30px;left:25px;letter-spacing:.14em;font-size:9px;color:#626f60}
+.rm-modal-content{padding:70px clamp(30px,5vw,78px) 55px;align-self:center;min-width:0}
+.rm-modal-top{font-size:10px;font-weight:600;letter-spacing:.14em;color:#869082;display:flex;justify-content:space-between;gap:12px}
+.rm-modal-progress{height:3px;background:#d6ddd2;margin:20px 0 12px;overflow:hidden}.rm-modal-progress span{display:block;background:#c4967d;height:100%;transition:width .24s ease}
+.rm-modal-content h2{font:400 clamp(45px,4.6vw,75px)/1.01 var(--serif);letter-spacing:-.026em;color:#566454;margin:22px 0}
+.rm-modal-content h2 em{font-weight:400;color:#bd856d}
+.rm-modal-desc{color:#7b8579;font-size:14px;line-height:1.7;max-width:490px}
+.rm-choices{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:30px 0}
+.rm-choice{background:#fbfaf7;border:1px solid #cdd5ca;padding:15px;display:flex;align-items:center;gap:12px;min-height:73px;border-radius:9px;text-align:left;color:#526150;font-size:12px;font-weight:500;transition:background .2s,border-color .2s,transform .2s}
+.rm-choice:hover{transform:translateY(-2px);background:#fff}
+.rm-choice[aria-pressed=true]{background:#f6eae4;border-color:#b87c64}
+.rm-choice-symbol{flex-shrink:0;width:32px;height:32px;border-radius:50%;background:#e5eae2;color:#899f87;display:grid;place-items:center;font-size:19px;font-weight:400}
+.rm-choice[aria-pressed=true] .rm-choice-symbol{color:#b87c64;background:#fae6db}
+.rm-quiz-controls,.rm-gift-controls{display:flex;align-items:center;gap:20px;flex-wrap:wrap;justify-content:space-between}
+.rm-quiet{border:0;background:transparent;padding:13px 0;color:#788577;font-size:12px;text-decoration:underline;text-underline-offset:4px}
+.rm-gift-card{background:#e6ebe2;border:1px solid #d0d9ce;padding:24px 28px;margin:24px 0;border-radius:9px}
+.rm-gift-symbol{display:block;color:#c3987f;font:400 41px var(--serif);margin-bottom:12px}
+.rm-gift-card p{font-size:13px;line-height:1.7;color:#667662}.rm-gift-card strong{font-size:10px;letter-spacing:.15em;color:#b17f69;display:block;margin:18px 0 8px}
+.rm-modal-legal{font-size:11px;line-height:1.65;color:#8a9587;margin:18px 0}
+.rm-modal-contact{display:block;width:min(650px,100%);min-height:0}.rm-modal-contact .rm-modal-content{padding:55px clamp(30px,6vw,75px)}
+.rm-modal-contact .form-row{margin-bottom:14px}
+.rm-modal-contact .form-status{display:block;margin:12px 0}
+@media(max-width:640px){.rm-overlay{padding:0}.rm-modal{grid-template-columns:1fr;max-height:100dvh;min-height:100dvh;width:100%;border-radius:0}.rm-modal-aside{display:none}.rm-modal-content{padding:75px 23px 40px;align-self:start}.rm-modal-content h2{font-size:clamp(43px,10.7vw,64px)}
+.rm-choices{grid-template-columns:1fr;gap:8px;margin:20px 0}.rm-choice{min-height:59px;padding:12px}
+.rm-gift-card{padding:17px;margin:16px 0}.rm-gift-controls{gap:8px}.rm-modal-close{top:15px;right:15px}}
+@media(prefers-reduced-motion:reduce){.rm-overlay,.rm-modal{animation:none!important}.rm-choice{transition:none}}
