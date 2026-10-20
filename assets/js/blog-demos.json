@@ -1,0 +1,32 @@
+[
+  {
+    "id": "ritual",
+    "label": "NOTA DE MUESTRA / VIDA REAL",
+    "title": "El poder de los pequeños rituales",
+    "sub": "Hay hábitos cotidianos que merecen más atención que una regla perfecta.",
+    "one": "Quizá una de las preguntas más útiles no sea qué hacer diferente mañana, sino qué parte de lo que hacemos hoy vale la pena observar.",
+    "two": "El espacio entre una decisión y la siguiente también cuenta una historia. Este texto es una demostración editorial pendiente de redacción y revisión por Rosela.",
+    "first": "https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=1600&q=83",
+    "second": "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1300&q=82"
+  },
+  {
+    "id": "mesa",
+    "label": "NOTA DE MUESTRA / PERSPECTIVA",
+    "title": "Volver a sentarnos a la mesa",
+    "sub": "Una reflexión sobre tiempo, conversación y nuestra relación cotidiana con la comida.",
+    "one": "Comer también es una experiencia cultural, social y personal. A veces conviene escuchar todas esas capas antes de buscar respuestas rápidas.",
+    "two": "Este espacio buscará hablar de nutrición desde la experiencia humana, sin listas universales ni certezas artificiales. Contenido de demostración.",
+    "first": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1600&q=83",
+    "second": "https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=1300&q=82"
+  },
+  {
+    "id": "pausa",
+    "label": "NOTA DE MUESTRA / BIENESTAR",
+    "title": "La pausa también forma parte del camino",
+    "sub": "No todo lo que importa en una rutina puede medirse con números.",
+    "one": "Entre las rutinas y las expectativas, hay momentos que nos invitan a observar lo que realmente necesitamos.",
+    "two": "Una mirada personal sobre la alimentación comienza, muchas veces, por prestar más atención al contexto. Texto editorial de muestra.",
+    "first": "https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=1600&q=83",
+    "second": "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1300&q=82"
+  }
+]
