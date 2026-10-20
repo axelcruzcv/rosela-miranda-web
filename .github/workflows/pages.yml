@@ -31,6 +31,7 @@ jobs:
           node --check assets/js/site.js
           node --check assets/js/experience.js
           node --check assets/js/v3.js
+          node --check assets/js/v4.js
       - name: Configure Pages
         uses: actions/configure-pages@v5
         with:

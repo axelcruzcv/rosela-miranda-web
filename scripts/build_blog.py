@@ -37,8 +37,8 @@ def make_article(d,p):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../assets/styles.css">
-<script type="module" src="../../assets/js/site.js"></script>
+<link rel="stylesheet" href="../../assets/styles.css"><link rel="stylesheet" href="../../assets/v3.css"><link rel="stylesheet" href="../../assets/v4.css">
+<script type="module" src="../../assets/js/site.js"></script><script type="module" src="../../assets/js/v3.js"></script><script type="module" src="../../assets/js/v4.js"></script>
 <title>{title} | Rosela Miranda</title></head><body>
 <a class="skip-link" href="#contenido">Saltar al contenido</a>
 <header class="site-header" data-header><a class="brand" href="../../" aria-label="Rosela Miranda, inicio"><img src="../../assets/images/rosela-monogram.png" width="57" height="54" alt=""><span class="brand-wordmark">ROSELA <span>MIRANDA</span></span></a>
