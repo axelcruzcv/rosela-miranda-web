@@ -80,9 +80,9 @@ const gifts = {
   plan: {title:'Organización sin rigidez',description:'Un punto de partida puede ser hacer espacio para planear sin buscar la perfección.',tip:'Elige una sola comida de la semana que quieras dejar pensada con anticipación.'},
   variety: {title:'Curiosidad por explorar',description:'Tal vez lo que necesitas es volver a sentir curiosidad por tus opciones cotidianas.',tip:'Anota dos preparaciones que te gustaría descubrir, sin obligación de probarlas hoy.'},
   rhythm: {title:'Un ritmo más tuyo',description:'Tus horarios reales merecen ser considerados cuando piensas en tus hábitos.',tip:'Observa durante dos días qué momentos te resultan más cómodos para comer.'},
-  steady: {title:'Constancia realista',description:'No todos los cambios necesitan ser grandes para que valga la pena intentarlos.',tip:'Elige una acción tan sencilla que puedas repetirla incluso en un día ocupado.'}
+  steady: {title:'A tu propio ritmo',description:'No todos los cambios necesitan ser grandes para que valga la pena intentarlos.',tip:'Elige una acción tan sencilla que puedas repetirla incluso en un día ocupado.'}
 };
-let step = 0, selected = [], gift = null;
+let step = 0, selected = [], gift = null, giftId = 'plan';
 const screen = document.getElementById('rm-quiz-screen');
 const progress = document.getElementById('rm-quiz-progress');
 const counter = document.getElementById('rm-quiz-counter');
@@ -124,46 +124,131 @@ function renderGift(){
   const counts={plan:0,variety:0,rhythm:0,steady:0};
   selected.forEach(x=>{counts[x]++;});
   const code=Object.keys(counts).sort((a,b)=>counts[b]-counts[a]||(a===selected[0]?-1:b===selected[0]?1:0))[0];
-  gift=gifts[code];
+  gift=gifts[code];giftId=code;
   const eyebrow=document.createElement('p');eyebrow.className='eyebrow';eyebrow.textContent='UN DETALLE DE ROSELA PARA TI';
-  const heading=document.createElement('h2');heading.id='rm-quiz-title';heading.textContent=gift.title;
+  const heading=document.createElement('h2');heading.id='rm-quiz-title';heading.textContent='Tu tip.';
+  const giftSubtitle=document.createElement('h3');giftSubtitle.className='rm-gift-subtitle';giftSubtitle.textContent=gift.title;
   const wrap=document.createElement('div');wrap.className='rm-gift-card';
-  const emblem=document.createElement('span');emblem.className='rm-gift-symbol';emblem.textContent='✿';
+  const emblem=document.createElement('span');emblem.className='rm-gift-symbol';emblem.textContent=({plan:'◫',variety:'❀',rhythm:'◌',steady:'✧'})[giftId];wrap.dataset.gift=giftId;
   const desc=document.createElement('p');desc.textContent=gift.description;
   const label=document.createElement('strong');label.textContent='UNA IDEA PARA EMPEZAR';
   const tip=document.createElement('p');tip.textContent=gift.tip;
-  wrap.append(emblem,desc,label,tip);
+  wrap.append(emblem,giftSubtitle,desc,label,tip);
   const note=document.createElement('p');note.className='rm-modal-legal';note.textContent='Este regalo es educativo y no evalúa tu salud ni sustituye una consulta.';
   const controls=document.createElement('div');controls.className='rm-gift-controls';
-  const save=document.createElement('button');save.type='button';save.className='button button-primary';save.textContent='Guardar mi detalle ↓';save.addEventListener('click',saveGift);
+  const save=document.createElement('button');save.type='button';save.className='button button-primary';save.textContent='Descargar mi regalo ↓';save.addEventListener('click',saveGift);
   const again=document.createElement('button');again.type='button';again.className='rm-quiet';again.textContent='Volver a empezar';again.addEventListener('click',resetQuiz);
   const contact=document.createElement('button');contact.type='button';contact.className='rm-quiet';contact.textContent='Escribirle a Rosela ↗';
   contact.addEventListener('click',()=>openModal(contactModal));
   controls.append(save,again,contact);screen.append(eyebrow,heading,wrap,note,controls);
 }
-async function saveGift(){
-  if(!gift)return;
-  try{await document.fonts.ready;}catch{}
-  const canvas=document.createElement('canvas');canvas.width=1080;canvas.height=1350;
-  const ctx=canvas.getContext('2d');if(!ctx)return;
-  ctx.fillStyle='#f4f2ec';ctx.fillRect(0,0,1080,1350);
-  ctx.strokeStyle='#cbd2c6';ctx.lineWidth=3;ctx.strokeRect(52,52,976,1246);
-  ctx.fillStyle='#d4a084';ctx.font='110px Georgia,serif';ctx.fillText('✿',95,240);
-  ctx.fillStyle='#6b776b';ctx.font='600 27px Arial,sans-serif';ctx.fillText('UN DETALLE PARA TI',105,340);
-  ctx.fillStyle='#435143';ctx.font='76px Georgia,serif';
-  function lines(text,x,y,maxWidth,lineHeight,maxLines){const words=text.split(' ');let line='',printed=0;for(const w of words){const test=line?line+' '+w:w;if(ctx.measureText(test).width>maxWidth&&line){ctx.fillText(line,x,y);y+=lineHeight;printed++;if(printed>=maxLines)return y;line=w;}else line=test;}if(line){ctx.fillText(line,x,y);y+=lineHeight;}return y;}
-  let y=lines(gift.title,105,470,850,88,3);
-  ctx.fillStyle='#687768';ctx.font='33px Arial,sans-serif';y=lines(gift.description,105,y+65,850,49,4);
-  ctx.strokeStyle='#d6c3b7';ctx.beginPath();ctx.moveTo(105,y+65);ctx.lineTo(975,y+65);ctx.stroke();
-  ctx.fillStyle='#bb8066';ctx.font='600 26px Arial,sans-serif';ctx.fillText('UNA IDEA PARA EMPEZAR',105,y+140);
-  ctx.fillStyle='#4b5a4b';ctx.font='35px Arial,sans-serif';lines(gift.tip,105,y+220,850,52,5);
-  ctx.fillStyle='#788278';ctx.font='25px Arial,sans-serif';ctx.fillText('ROSELA MIRANDA  /  START',105,1195);
-  ctx.font='19px Arial,sans-serif';ctx.fillText('Reflexión educativa · No es una evaluación clínica',105,1243);
+async function saveGift() {
+  if (!gift) return;
+  try { await document.fonts.ready; } catch {}
+  const canvas = document.createElement('canvas');
+  canvas.width = 1080; canvas.height = 1350;
+  const ctx = canvas.getContext('2d');
+  if (!ctx) return;
+  const themes = {
+    plan: {background:'#f6f1e9',ink:'#344839',accent:'#c39176',rule:'#d1c6b8',caption:'#737c6d'},
+    variety: {background:'#e5edf2',ink:'#324c71',accent:'#4e6691',rule:'#b9c9d8',caption:'#637c97'},
+    rhythm: {background:'#eee1e0',ink:'#663c47',accent:'#7b4a53',rule:'#d5c0c4',caption:'#865c66'},
+    steady: {background:'#293a32',ink:'#edf0e8',accent:'#d3ab92',rule:'#6d8071',caption:'#bec8ba'}
+  };
+  const theme = themes[giftId] || themes.plan;
+  ctx.fillStyle=theme.background;
+  ctx.fillRect(0,0,1080,1350);
+  ctx.strokeStyle=theme.rule;
+  ctx.lineWidth=2;
+  ctx.strokeRect(55,55,970,1240);
+  ctx.save();
+  ctx.translate(540,302);
+  // Four distinct generative illustrations, one per result.
+  if (giftId==='plan') {
+    for(let i=0;i<7;i++){
+      ctx.beginPath();ctx.lineWidth=5-i*.3;
+      ctx.strokeStyle=i%2?theme.accent:theme.rule;
+      ctx.arc(0,0,95+i*20,Math.PI*1.08,Math.PI*1.92);
+      ctx.stroke();
+    }
+    for(let i=-2;i<3;i++)for(let j=-1;j<2;j++){
+      ctx.beginPath();ctx.fillStyle=theme.accent;
+      ctx.arc(i*45,j*45+90,4+(i+j+4)%4,0,Math.PI*2);ctx.fill();
+    }
+  } else if (giftId==='variety'){
+    for(let i=0;i<9;i++){
+      ctx.save();ctx.rotate(i*Math.PI*2/9);
+      ctx.fillStyle=i%2?theme.accent:'#a9bacf';
+      ctx.beginPath();ctx.ellipse(0,-94,42,108,0,0,Math.PI*2);ctx.fill();
+      ctx.restore();
+    }
+    ctx.fillStyle=theme.background;ctx.beginPath();ctx.arc(0,0,43,0,Math.PI*2);ctx.fill();
+    ctx.strokeStyle=theme.ink;ctx.beginPath();ctx.arc(0,0,38,0,Math.PI*2);ctx.stroke();
+  } else if (giftId==='rhythm') {
+    for(let i=0;i<7;i++){
+      ctx.beginPath();ctx.strokeStyle=i%2?theme.accent:'#b18c95';ctx.lineWidth=5;
+      const y=(i-3)*35;
+      ctx.moveTo(-220,y);
+      ctx.bezierCurveTo(-100,y-68,15,y+68,230,y);
+      ctx.stroke();
+    }
+    ctx.beginPath();ctx.fillStyle=theme.ink;ctx.arc(155,-120,18,0,Math.PI*2);ctx.fill();
+  } else {
+    ctx.strokeStyle=theme.accent;ctx.lineWidth=7;ctx.lineCap='round';
+    ctx.beginPath();ctx.moveTo(-130,160);ctx.bezierCurveTo(0,100,65,-70,145,-165);ctx.stroke();
+    for(let i=0;i<5;i++){
+      const x=-112+i*55;const y=154-i*63;
+      for(const side of [-1,1]){
+        ctx.save();ctx.translate(x,y);ctx.rotate(side*.75);
+        ctx.fillStyle=side>0?'#a8b6a4':'#d5bea7';
+        ctx.beginPath();ctx.ellipse(0,-40,19,50,0,0,Math.PI*2);ctx.fill();ctx.restore();
+      }
+    }
+  }
+  ctx.restore();
+  ctx.fillStyle=theme.caption;
+  ctx.font='600 22px Arial,sans-serif';
+  ctx.textAlign='center';
+  ctx.fillText('ROSELA MIRANDA  /  START',540,108);
+  ctx.fillStyle=theme.ink;
+  ctx.font='400 95px Georgia,serif';
+  ctx.fillText('Tu tip.',540,590);
+  ctx.font='400 48px Georgia,serif';
+  ctx.fillStyle=theme.accent;
+  ctx.fillText(gift.title,540,660,930);
+  ctx.textAlign='left';
+  const wrap=(text,x,y,width,height,limit=8)=>{
+    let line='',count=0;
+    for(const word of String(text).split(/\s+/)){
+      const trial=line?line+' '+word:word;
+      if(ctx.measureText(trial).width>width && line){
+        ctx.fillText(line,x,y);y+=height;count++;
+        if(count>=limit)return y;
+        line=word;
+      }else line=trial;
+    }
+    if(line){ctx.fillText(line,x,y);y+=height;}
+    return y;
+  };
+  ctx.font='29px Arial,sans-serif';
+  ctx.fillStyle=theme.caption;
+  let y=wrap(gift.description,145,760,790,48,4);
+  ctx.strokeStyle=theme.rule;ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(145,y+24);ctx.lineTo(935,y+24);ctx.stroke();
+  ctx.fillStyle=theme.accent;ctx.font='600 20px Arial,sans-serif';
+  ctx.fillText('UNA IDEA PARA HOY',145,y+78);
+  ctx.fillStyle=theme.ink;ctx.font='31px Arial,sans-serif';
+  wrap(gift.tip,145,y+130,790,49,4);
+  ctx.fillStyle=theme.caption;
+  ctx.font='18px Arial,sans-serif';
+  ctx.fillText('Una reflexión educativa. No es un diagnóstico ni una consulta.',145,1225);
+  ctx.fillText('UN DETALLE, SOLO PARA TI.',145,1262);
   canvas.toBlob(blob=>{
     if(!blob)return;
-    const url=URL.createObjectURL(blob);const link=document.createElement('a');
-    link.href=url;link.download='mi-detalle-rosela-miranda.png';document.body.append(link);link.click();link.remove();
-    setTimeout(()=>URL.revokeObjectURL(url),3000);
+    const blobUrl=URL.createObjectURL(blob);
+    const a=document.createElement('a');
+    a.href=blobUrl;a.download='rosela-miranda-tu-tip-'+giftId+'.png';
+    document.body.append(a);a.click();a.remove();
+    setTimeout(()=>URL.revokeObjectURL(blobUrl),3000);
   },'image/png');
 }
 const params = new URLSearchParams(location.search);
