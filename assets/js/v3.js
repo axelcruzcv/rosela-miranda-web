@@ -83,7 +83,7 @@ if (document.querySelector('.v3-blog-gallery')) {
     open();
     try {
       if(!demoCache) {
-        const res=await fetch(new URL('../assets/js/blog-demos.json', import.meta.url));
+        const res=await fetch(new URL('./blog-demos.json', import.meta.url));
         if(!res.ok) throw new Error('No disponible');
         demoCache=await res.json();
       }

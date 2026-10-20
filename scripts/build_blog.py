@@ -63,7 +63,7 @@ if valid:
         path=blog / str(p['slug'])
         path.mkdir(parents=True,exist_ok=True)
         (path/'index.html').write_text(make_article(d,p),encoding='utf8')
-    template=template.replace('<section class="rm-blog-content">','<section class="rm-blog-content has-posts">')
+    template=template.replace('<section class="v3-cms-posts"','<section class="v3-cms-posts has-posts"')
     template=template.replace(marker,'<div class="rm-post-grid">'+'\n'.join(cards)+'</div>')
 else: template=template.replace(marker,'')
 (blog/'index.html').write_text(template,encoding='utf8')

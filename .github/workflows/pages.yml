@@ -30,6 +30,7 @@ jobs:
           python scripts/build_blog.py
           node --check assets/js/site.js
           node --check assets/js/experience.js
+          node --check assets/js/v3.js
       - name: Configure Pages
         uses: actions/configure-pages@v5
         with:
