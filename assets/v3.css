@@ -208,3 +208,19 @@ body.v3-article-open{overflow:hidden}
 .v3-article-dialog .rm-blog-article .rm-blog-body{font-size:16px;line-height:1.8;color:#596959}
 .v3-article-dialog .rm-blog-article .rm-blog-body h2{font:400 46px 'Instrument Serif',Georgia,serif;color:#667665;margin-top:40px}
 .v3-article-dialog .v3-modal-note{font-size:11px;color:#ae8068;letter-spacing:.03em}
+
+/* V3 refinement: respect the 1.25-screen desktop composition and header behavior. */
+@media(min-width:901px) {
+.v3-podcast{height:clamp(230px,23svh,300px)}
+.v3-podcast h2{font-size:clamp(35px,3.1vw,55px)}
+.v3-footer{min-height:54px;padding-top:8px;padding-bottom:8px}
+}
+@media(min-width:781px) and (max-width:900px) {
+.v3-header{height:90px;padding:18px 22px;align-items:center;justify-content:space-between}
+.v3-brand{width:49px}
+.v3-mobile-menu{display:flex;position:relative;z-index:2;background:#fafaf2d9;border:1px solid #ffffff96}
+.v3-nav{display:none;position:absolute;top:80px;left:18px;right:18px;grid-template-columns:1fr;height:auto;padding:12px 20px;box-shadow:0 12px 35px #1b28152b}
+.v3-nav.is-open{display:grid}
+.v3-nav>a,.v3-nav>button{border:0;border-bottom:1px solid #dce1d9;text-align:left;padding:18px 4px;font-size:15px}
+.v3-nav>:last-child{border:0}
+}
