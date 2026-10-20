@@ -11,7 +11,7 @@ function setMenu(open) {
   menuToggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
 }
 menuToggle?.addEventListener('click', () => setMenu(menuToggle.getAttribute('aria-expanded') !== 'true'));
-menu?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setMenu(false)));
+menu?.querySelectorAll('a, button').forEach(link => link.addEventListener('click', () => setMenu(false)));
 document.addEventListener('keydown', event => {
   if (event.key === 'Escape') setMenu(false);
 });
