@@ -1,70 +1,69 @@
-# Rosela Miranda — Digital Experience
+# Rosela Miranda — Digital Experience V2
 
-Sitio editorial para Rosela Miranda, nutrióloga. MVP estático, adaptable a GitHub Pages. HTML semántico, CSS y JavaScript nativos; cero dependencias de compilación.
+Sitio editorial estático, sin frameworks de interfaz, publicado en GitHub Pages.
 
-## Páginas
+## Arquitectura
 
-- `/`: Main con hero editorial, presentación, acceso a START y contacto.
-- `/cv/`: perfil profesional; credenciales pendientes de aprobación.
-- `/start/`: test reflexivo de cuatro preguntas, sin recolección ni almacenamiento de respuestas.
-- `/blog/`: landing editorial, contenido pendiente.
-- `/privacidad/`: aviso pendiente de validación. **No apto para lanzamiento público definitivo.**
+- `/`: Main con **solo dos secciones**: presentación y respaldo profesional/audio.
+- `/cv/`: perfil profesional independiente, formación, trayectoria y futuros CV PDF ES/EN.
+- **START**: test no clínico en modal accesible en cualquier página, sin registro y con tarjeta PNG para guardar.
+- `/blog/`: journal personal de Rosela, con artículos estáticos generados desde el CMS.
+- `/privacidad/`: aviso provisional que debe reemplazarse antes de habilitar el formulario.
+- `/start/`: redirección de enlaces antiguos hacia el modal START.
 
-## Vista local
+## Blog: panel para Rosela
+
+El repositorio incluye `.pages.yml` para [Pages CMS](https://app.pagescms.org/) (servicio externo gratuito).
+Para activarlo:
+1. Entrar a https://app.pagescms.org/ e iniciar sesión.
+2. Instalar/autorizar la aplicación de GitHub **solo para este repositorio**.
+3. Elegir `axelcruzcv/rosela-miranda-web` y `main`.
+4. Abrir **Blog de Rosela**; crear una nota con título, slug, fecha, resumen, foto y texto.
+5. Marcar **Mostrar en el blog** cuando la nota esté aprobada y guardar.
+6. GitHub Actions compila `blog/posts.json` y publica artículos en `/blog/<slug>/`.
+
+Los borradores con `published: false` no salen en la web, **pero su texto seguirá visible en `blog/posts.json` del repositorio público**. No guardar información sensible ni borradores privados ahí. El CMS es un editor externo, no un backend de usuarios/pacientes.
+
+## GitHub Pages
+
+`.github/workflows/pages.yml` despliega automáticamente cada commit en `main`. El build de publicaciones ocurre únicamente durante el despliegue; el navegador recibe HTML estático, sin llamadas a GitHub ni bases de datos.
+URL de revisión: https://axelcruzcv.github.io/rosela-miranda-web/
+
+## Experiencia START
+
+Cuatro preguntas de hábitos (no clínicas). Las respuestas solo permanecen en memoria hasta cerrar o reiniciar el modal.
+Al concluir se crea una tarjeta PNG local mediante Canvas API. No hay almacenamiento de datos personales ni envío de las respuestas.
+La copia de preguntas y resultados necesita aprobación final de Rosela.
+
+## Contacto — sigue DESHABILITADO
+
+El modal de contacto está listo a nivel UX, pero no puede enviar mensajes hasta:
+- Validar correo receptor y verificar el proveedor de entrega (por ejemplo, Formspree).
+- Aprobar aviso de privacidad completo y consentimiento aplicable.
+- Completar `assets/js/config.js` con un endpoint verificado; nunca agregar secretos.
+- Probar envío, spam, validaciones y mensajes de confirmación.
+
+El formulario **no** sustituye una consulta ni debe captar historias clínicas.
+
+## Pendientes de contenido (no inventar)
+
+- Fotografía formal y biografía validadas para `/cv/`.
+- Instituciones, estudios, cédula, experiencia y educación continua comprobables.
+- Dos one-pagers ATS en español e inglés, después de recibir documentos reales; ningún CV puede garantizar 100% de aceptación de todos los ATS.
+- Enlace real al podcast de Spotify. Hasta entonces el bloque de audio es un adelanto sin CTA falso.
+- Aviso de privacidad, email receptor y textos del test aprobados por Rosela.
+
+## Desarrollo local
 
 ```bash
 python3 -m http.server 8080
-# Abrir http://localhost:8080
+# abrir http://localhost:8080/rosela-miranda-web/ si está un directorio arriba
 ```
 
-No hace falta instalar npm ni compilar.
+Para simular el build del blog con dependencias locales:
+```bash
+python3 -m pip install Markdown==3.9 bleach==6.2.0
+python3 scripts/build_blog.py
+```
 
-## Despliegue en GitHub Pages
-
-1. Crear repositorio `rosela-miranda-web` en la cuenta GitHub correspondiente.
-2. Subir el contenido de este directorio a la rama `main`.
-3. En Settings → Pages → Build and deployment → Source: **GitHub Actions**.
-4. El workflow `.github/workflows/pages.yml` publica automáticamente tras cada `push` a `main`.
-5. En caso de usar subruta (`/rosela-miranda-web/`), los links relativos ya están preparados.
-
-## Formulario de contacto: bloqueo intencional
-
-GitHub Pages es hosting estático: **no puede enviar correos por sí mismo**. Antes de habilitar el formulario:
-
-1. Confirmar el correo receptor con Rosela.
-2. Dar de alta un formulario en Formspree (o integrar un backend controlado) con el correo de Rosela y completar la verificación del proveedor.
-3. Revisar y publicar el aviso de privacidad definitivo y verificar el tratamiento de datos con Rosela.
-4. Configurar `CONTACT_ENDPOINT` en `assets/js/config.js` y cambiar `PRIVACY_APPROVED` a `true` únicamente después de esa revisión.
-5. Probar envío real, acuse, spam, límites/rate-limiting y errores. **No marcar como operativo antes de la prueba end-to-end.**
-
-No incluir claves SMTP ni secretos en archivos públicos. El proveedor debe actuar como intermediario seguro.
-
-## Privacidad y salud
-
-- El test es educativo; no proporciona diagnóstico ni asesoría clínica.
-- Las respuestas son efímeras, exclusivamente en la memoria del navegador. No se envían al backend, ni se incluyen en mensajes de contacto, ni se guardan en localStorage.
-- El formulario solo contempla `name`, `email`, `message`, `source`, y solicita expresamente no introducir datos médicos.
-- No hay seguimiento GA4 por defecto. Incorporar analítica solo con configuración de privacidad apropiada, sin parámetros personales.
-- Cualquier copy sobre formación, servicios, especialidad o resultados profesionales requiere confirmación de Rosela.
-
-## Identidad
-
-- Verde salvia: `#898F82`
-- Terracota de marca: `#D4A084`
-- Textos principales: `#343B34`
-- CTA con contraste: `#9D5F49`
-- Fuentes gratuitas: Instrument Serif + Geist, vía Google Fonts. Considerar autoalojamiento al preparar la versión definitiva.
-
-## Pendientes antes del lanzamiento
-
-- [ ] Aprobar fotografías e identidad con Rosela.
-- [ ] Validar todos los textos de salud y resultados del test.
-- [ ] Validar formación profesional, cédula, servicios y CV PDF.
-- [ ] Decidir si se publica Blog con contenido o se retira temporalmente del header.
-- [ ] Validar aviso de privacidad, correo receptor y canal de respuestas.
-- [ ] Configurar y probar formulario real de principio a fin.
-- [ ] Configurar dominio, Search Console y analítica con controles de privacidad.
-- [ ] Comprobar acceso por teclado, screen reader, responsive, Lighthouse y Core Web Vitals en deployment final.
-
----
-Versión 1.0 · Diseñado para despliegue incremental y rendimiento.
+Identidad: Instrument Serif + Geist; salvia #898F82 y acentos terracota.
