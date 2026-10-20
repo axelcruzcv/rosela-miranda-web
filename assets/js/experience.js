@@ -53,7 +53,7 @@ function closeModal(restore = true) {
   if (restore) opener?.focus?.({preventScroll:true});
 }
 document.addEventListener('click', event => {
-  const trigger = event.target.closest('[data-open-quiz],[data-open-contact],a[href$="/start/"],a[href$="#contacto"]');
+  const trigger = event.target.closest('[data-open-quiz],[data-open-contact],a[href="start/"],a[href$="/start/"],a[href$="#contacto"]');
   if (trigger) {
     event.preventDefault();
     if (trigger.matches('[data-open-contact],a[href$="#contacto"]')) openModal(contactModal);
