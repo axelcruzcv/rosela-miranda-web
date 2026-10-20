@@ -19,6 +19,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install blog builder
+        run: python -m pip install "Markdown==3.9" "bleach==6.2.0"
+      - name: Generate blog and check JavaScript
+        run: |
+          python scripts/build_blog.py
+          node --check assets/js/site.js
+          node --check assets/js/experience.js
       - name: Configure Pages
         uses: actions/configure-pages@v5
         with:

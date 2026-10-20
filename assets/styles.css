@@ -137,3 +137,6 @@ body.rm-modal-open{overflow:hidden}
 .rm-choices{grid-template-columns:1fr;gap:8px;margin:20px 0}.rm-choice{min-height:59px;padding:12px}
 .rm-gift-card{padding:17px;margin:16px 0}.rm-gift-controls{gap:8px}.rm-modal-close{top:15px;right:15px}}
 @media(prefers-reduced-motion:reduce){.rm-overlay,.rm-modal{animation:none!important}.rm-choice{transition:none}}
+
+.rm-blog-content.has-posts .rm-blog-empty{display:none}
+.rm-post-cover{display:block;width:100%;height:auto;aspect-ratio:1.7;object-fit:cover;margin:25px 0}

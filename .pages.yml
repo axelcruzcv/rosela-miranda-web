@@ -1,0 +1,43 @@
+media:
+  input: assets/images/blog
+  output: /rosela-miranda-web/assets/images/blog
+content:
+  - name: journal
+    label: Blog de Rosela
+    type: file
+    path: blog/posts.json
+    format: json
+    list: true
+    fields:
+      - name: title
+        label: Título
+        type: string
+        required: true
+      - name: slug
+        label: URL corta (sin espacios)
+        type: string
+        required: true
+        pattern: "^[a-z0-9-]+$"
+      - name: description
+        label: Resumen
+        type: text
+        required: true
+      - name: date
+        label: Fecha
+        type: date
+        required: true
+        options:
+          format: yyyy-MM-dd
+      - name: cover
+        label: Foto de portada
+        type: image
+      - name: published
+        label: Mostrar en el blog
+        type: boolean
+        default: false
+      - name: body
+        label: Artículo
+        type: rich-text
+        options:
+          format: markdown
+          switcher: true
