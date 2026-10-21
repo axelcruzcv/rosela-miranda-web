@@ -123,7 +123,7 @@ if (document.querySelector('.v3-blog-gallery')) {
   document.addEventListener('click',event=>{
     const dummy=event.target.closest('[data-demo-article]');
     if(dummy){event.preventDefault();openDummy(dummy.dataset.demoArticle);return;}
-    const article=event.target.closest('.v3-cms-posts a.rm-post-card');
+    const article=event.target.closest('.v3-blog-cards a.v3-blog-card[data-article], .v3-cms-posts a.rm-post-card');
     if(article){event.preventDefault();openPublished(article.href);}
   });
   close.addEventListener('click',dismiss);

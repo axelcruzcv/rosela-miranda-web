@@ -1,9 +1,10 @@
+# Rosela Miranda · Gestión editorial en Pages CMS
 media:
   input: assets/images/blog
   output: /rosela-miranda-web/assets/images/blog
 content:
   - name: journal
-    label: Blog de Rosela
+    label: Blog de Rosela · Notas y orden
     type: file
     path: blog/posts.json
     format: json
@@ -14,12 +15,21 @@ content:
         type: string
         required: true
       - name: slug
-        label: URL corta (sin espacios)
+        label: Enlace corto (letras minúsculas y guiones)
         type: string
         required: true
-        pattern: "^[a-z0-9-]+$"
+        pattern: "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+      - name: position
+        label: Orden de aparición (1 es el bloque principal)
+        type: number
+        required: true
+        description: "1 aparece primero y ocupa el bloque grande. Usa 2, 3, 4... para ordenar las demás notas."
+      - name: label
+        label: Categoría / texto superior
+        type: string
+        required: true
       - name: description
-        label: Resumen
+        label: Resumen visible sobre la imagen
         type: text
         required: true
       - name: date
@@ -29,15 +39,21 @@ content:
         options:
           format: yyyy-MM-dd
       - name: cover
-        label: Foto de portada
+        label: Fotografía principal (mosaico y artículo)
+        type: image
+        required: true
+      - name: image2
+        label: Segunda fotografía dentro del artículo
         type: image
       - name: published
-        label: Mostrar en el blog
+        label: Publicar en la web
         type: boolean
         default: false
+        description: "Oculta del sitio si desactivas la opción. Los borradores siguen visibles en el repositorio público de GitHub."
       - name: body
-        label: Artículo
+        label: Artículo completo (textos, títulos, listas e imágenes)
         type: rich-text
+        required: true
         options:
           format: markdown
           switcher: true

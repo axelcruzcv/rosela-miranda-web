@@ -67,3 +67,17 @@ python3 scripts/build_blog.py
 ```
 
 Identidad: Instrument Serif + Geist; salvia #898F82 y acentos terracota.
+
+
+## Gestión editorial V5 (Pages CMS)
+
+**Todo el mosaico del Blog, incluyendo las tres notas de ejemplo, está controlado por `blog/posts.json`.** Antes eran tres enlaces codificados manualmente en `blog/index.html` y no podían editarse desde el CMS; esa limitación se eliminó.
+
+- Abrir https://app.pagescms.org/ y acceder con la cuenta de GitHub autorizada para este repositorio.
+- Entrar en `axelcruzcv/rosela-miranda-web` → `main` → **Blog de Rosela · Notas y orden**.
+- Cada entrada admite título, enlace corto, categoría, resumen, fecha, imagen de portada, segunda imagen, texto enriquecido, visibilidad y **orden de aparición**.
+- El campo **Orden de aparición** controla el mosaico: `1` ocupa el bloque grande, `2` el siguiente, `3` el tercero; números menores aparecen primero. Guardar publica un commit y GitHub Pages recompila la web.
+- Las tres notas iniciales están marcadas como **NOTA DE MUESTRA**; Rosela puede editar su contenido o desactivar su publicación.
+- Se puede cargar una fotografía desde Pages CMS en `assets/images/blog`; el sitio utiliza ese archivo directamente sin base de datos ni hosting de pago.
+- La creación del panel está preparada en el repositorio, pero **la autorización de Pages CMS debe completarla el propietario de GitHub**. No se han verificado permisos ni sesiones de Rosela.
+- Advertencia: `published: false` oculta la entrada del sitio, **no la oculta del repositorio público**. No escribir borradores confidenciales, datos de pacientes ni información clínica en este CMS público.
