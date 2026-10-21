@@ -134,3 +134,51 @@
 .v3-cv-journey .v4-journey-photo{box-shadow:0 25px 76px rgba(9,19,13,.3);border:1px solid rgba(233,228,209,.1)}
 .v3-cv-journey .v4-journey-photo:after{background:linear-gradient(0deg,rgba(24,34,24,.84),transparent 26%)}
 .v3-cv-journey .v4-journey-photo>span{color:#e9e9de}
+
+/* Blog polish: reserve a real navigation row; make the magazine mosaic seamless. */
+.v3-blog-page .v3-header {
+  position: relative;
+  top: auto;
+  left: auto;
+  right: auto;
+  height: 100px;
+  padding: 18px clamp(24px, 3.8vw, 75px);
+  align-items: center;
+  background: #e5e6e2;
+}
+.v3-blog-page .v4-blog-intro {
+  height: 42px;
+  min-height: 42px;
+  padding: 0 clamp(25px, 5.5vw, 90px) 12px;
+  background: #e5e6e2;
+  align-items: flex-end;
+}
+.v3-blog-page .v3-blog-cards {
+  gap: 0;
+  column-gap: 0;
+  row-gap: 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  background: transparent;
+}
+.v3-blog-page .v3-blog-card {
+  border: 0;
+  border-radius: 0;
+  min-width: 0;
+  margin: 0;
+}
+@media (max-width: 780px) {
+  .v3-blog-page .v3-header {
+    height: 88px;
+    padding: 14px 22px;
+  }
+  .v3-blog-page .v4-blog-intro {
+    height: 39px;
+    min-height: 39px;
+    padding: 0 24px 12px;
+  }
+}
+@media (max-width: 560px) {
+  .v3-blog-page .v3-blog-cards {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
