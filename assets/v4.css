@@ -113,3 +113,24 @@
 .v5-lima-image>figcaption{position:absolute;left:clamp(18px,2.8vw,46px);bottom:22px;right:18px;z-index:1;font:500 12px/1.5 var(--sans);color:#fff8ed;letter-spacing:.045em;text-shadow:0 1px 5px rgba(25,34,26,.3)}
 .v5-lima-image>figcaption span{font-weight:400;opacity:.84}
 @media(max-width:640px){.v3-lima-art.v5-lima-image{min-height:0;height:320px}.v5-lima-image>img{object-position:center 45%}.v5-lima-image>figcaption{bottom:16px}}
+
+
+/* V5 — Trayectoria nocturna / brand dark: copper, sage, stone */
+.v3-cv-journey{
+  background:radial-gradient(ellipse at 9% 12%,rgba(137,143,130,.21) 0%,transparent 52%),
+  radial-gradient(ellipse at 95% 86%,rgba(145,91,70,.34) 0%,transparent 52%),
+  linear-gradient(127deg,#25372f 0%,#27362f 45%,#49342e 100%);
+  color:#edf1e9;isolation:isolate;
+}
+.v3-cv-journey .v3-label{color:#dcb89f;letter-spacing:.19em}
+.v3-cv-journey h2{color:#eef1e8}
+.v3-cv-journey h2 em{color:#dfac91}
+.v3-cv-journey-lead>p:not(.v3-label){color:#c8d5c5}
+.v3-cv-journey .v3-journey-map{color:#dbe5d8}
+.v3-cv-journey .v3-route{border-bottom:1px solid rgba(209,220,205,.25)}
+.v3-cv-journey .v3-route strong{color:#f0f0e5}
+.v3-cv-journey .v3-route small{color:#c2d0bf}
+.v3-cv-journey .v3-route-dot{background:#e2b397;border:3px solid #38473a;box-shadow:0 0 0 1px #d8a182}
+.v3-cv-journey .v4-journey-photo{box-shadow:0 25px 76px rgba(9,19,13,.3);border:1px solid rgba(233,228,209,.1)}
+.v3-cv-journey .v4-journey-photo:after{background:linear-gradient(0deg,rgba(24,34,24,.84),transparent 26%)}
+.v3-cv-journey .v4-journey-photo>span{color:#e9e9de}
