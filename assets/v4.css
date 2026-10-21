@@ -412,3 +412,11 @@
  color:#9d8775;
  max-width:240px;
 }
+
+
+/* Explicit flex stacking: heading, portrait, then independent copy panel. */
+@media(max-width:780px){
+  .v3-site .v3-first .v3-hero-head{order:0}
+  .v3-site .v3-first .v3-portrait{order:1}
+  .v3-site .v3-first .v3-hero-bottom{order:2}
+}
