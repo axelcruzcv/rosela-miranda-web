@@ -35,7 +35,7 @@ def safe_image(value):
 
 def to_article(p, day):
     title, subtitle, slug = esc(p["title"]), esc(p["description"]), esc(p["slug"])
-    headline_label = esc(p.get("label") or "ROSELA MIRANDA · JOURNAL")
+    # Date is sufficient in the article header; categories remain editable as card metadata.
     content = markdown.markdown(str(p.get("body") or ""), extensions=["extra", "sane_lists"])
     content = bleach.clean(
         content,
@@ -64,7 +64,7 @@ def to_article(p, day):
 <nav class="v3-nav" id="primary-nav" data-menu aria-label="Navegación principal">
 <a href="../../">Inicio</a><a href="../../cv/">Perfil Profesional</a><button type="button" data-open-quiz>Test de hábitos</button><a aria-current="page" href="../">Blog</a></nav></header>
 <main id="contenido" class="v3-blog-gallery"><article class="rm-blog-article" data-post="{slug}">
-<p class="v3-label">{headline_label} / {day.strftime("%d · %m · %Y")}</p>
+<p class="v3-label"><time datetime="{day.isoformat()}">{day.strftime("%d · %m · %Y")}</time></p>
 <h1>{title}</h1><p class="rm-modal-desc">{subtitle}</p>
 {cover_html}<div class="rm-blog-body">{content}</div>{detail_html}
 <a class="rm-inline-link" href="../">← Volver al blog</a></article></main>

@@ -45,6 +45,25 @@ function updateVisual(){
     icon.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svgSymbol(step));
     icon.style.transform='rotate('+([-4,7,-8,10,-3][step])+'deg)';
   }
+  // On phones the decorative desktop sidebar is hidden: keep a dedicated
+  // illustration directly above the question so every step remains identifiable.
+  const content = rmQuiz.querySelector('.rm-modal-content');
+  const progress = rmQuiz.querySelector('.rm-modal-progress');
+  if(content && progress){
+    let mobile = content.querySelector('.v6-mobile-symbol');
+    if(!mobile){
+      mobile=document.createElement('div');mobile.className='v6-mobile-symbol';
+      mobile.setAttribute('aria-hidden','true');
+      const picture=document.createElement('img');picture.alt='';picture.width=80;picture.height=72;
+      mobile.append(picture);progress.insertAdjacentElement('afterend',mobile);
+    }
+    const picture=mobile.querySelector('img');
+    if(picture){
+      picture.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svgSymbol(step));
+      picture.style.transform='rotate('+([-4,7,-8,10,-3][step])+'deg)';
+    }
+    mobile.hidden=step===4;
+  }
   if(step!==4)return;
   const card=rmQuiz.querySelector('.rm-gift-card');
   if(!card||card.querySelector('.v4-gift-images'))return;
