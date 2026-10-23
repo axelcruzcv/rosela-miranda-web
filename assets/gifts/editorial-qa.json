@@ -1,0 +1,41 @@
+{
+  "version": "editorial-v2",
+  "visuals": "repository photographs and PDF-native vector icons",
+  "guides": [
+    {
+      "file": "RM_Regalo_MealPrep.pdf",
+      "pages": 4,
+      "size": 223199,
+      "images": 4,
+      "text_characters": 1874
+    },
+    {
+      "file": "RM_Regalo_Recetario.pdf",
+      "pages": 6,
+      "size": 274906,
+      "images": 6,
+      "text_characters": 3122
+    },
+    {
+      "file": "RM_Regalo_Rituales.pdf",
+      "pages": 4,
+      "size": 199598,
+      "images": 4,
+      "text_characters": 1829
+    },
+    {
+      "file": "RM_Regalo_Reto7Dias.pdf",
+      "pages": 4,
+      "size": 231161,
+      "images": 4,
+      "text_characters": 1760
+    },
+    {
+      "file": "RM_Bonus_ComerFuera.pdf",
+      "pages": 3,
+      "size": 146046,
+      "images": 3,
+      "text_characters": 1539
+    }
+  ]
+}

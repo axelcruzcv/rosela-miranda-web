@@ -2,13 +2,13 @@
  * ROSELA / EXPERIENCES — Progressive enhancement for GitHub Pages.
  * START is a non-clinical, in-memory reflective exercise. No answers leave the browser.
  */
-const leaf = new URL('../images/leaf-02.webp', import.meta.url).href;
+
 const root = document.createElement('div');
 root.innerHTML = 
   '<div class="rm-overlay rm-overlay-quiz" id="rm-quiz-modal" hidden>' +
     '<div class="rm-modal" role="dialog" aria-modal="true" aria-labelledby="rm-quiz-title" tabindex="-1">' +
       '<button class="rm-modal-close" type="button" data-close-modal aria-label="Cerrar test">×</button>' +
-      '<div class="rm-modal-aside" aria-hidden="true"><img src="'+leaf+'" alt="" width="420" height="500"><span>UN DETALLE PARA TI · RM</span></div>' +
+      '<div class="rm-modal-aside" aria-hidden="true"><span>UN DETALLE PARA TI · RM</span></div>' +
       '<div class="rm-modal-content"><div class="rm-modal-top"><span>START / BY ROSELA MIRANDA</span><span id="rm-quiz-counter">01 / 04</span></div>' +
         '<div class="rm-modal-progress"><span id="rm-quiz-progress"></span></div><div id="rm-quiz-screen" aria-live="polite"></div>' +
       '</div>' +
@@ -164,9 +164,7 @@ function renderGift(){
   const copy=document.createElement('div');copy.className='rm-gift-copy';
   copy.append(emblem,giftSubtitle,desc,label,tip);
   const preview=document.createElement('figure');preview.className='rm-gift-cover';
-  const previewImg=document.createElement('img');
-  previewImg.src=new URL('../images/gifts/'+gift.file.replace('.pdf','.webp'),import.meta.url).href;
-  previewImg.alt='Vista previa de '+gift.reward;previewImg.width=410;previewImg.height=580;previewImg.loading='lazy';previewImg.decoding='async';
+  const previewImg=document.createElement('div');previewImg.className='rm-gift-document-icon';previewImg.setAttribute('aria-hidden','true');
   const caption=document.createElement('figcaption');caption.textContent='TU GUÍA PERSONALIZADA';
   preview.append(previewImg,caption);
   wrap.append(copy,preview);
@@ -183,7 +181,7 @@ function renderGift(){
   contact.addEventListener('click',()=>openModal(contactModal));
   
   const bonus=document.createElement('aside');bonus.className='rm-bonus-strip';
-  const bonusThumb=document.createElement('img');bonusThumb.src=new URL('../images/gifts/RM_Bonus_ComerFuera.webp',import.meta.url).href;bonusThumb.alt='Vista previa del bonus: Comer saludable fuera de casa';bonusThumb.loading='lazy';bonusThumb.width=88;bonusThumb.height=120;
+  const bonusThumb=document.createElement('span');bonusThumb.className='rm-bonus-document-icon';bonusThumb.setAttribute('aria-hidden','true');
   const bonusCopy=document.createElement('div');
   const bonusLabel=document.createElement('strong');bonusLabel.textContent='Y además, un bonus para ti.';
   const bonusText=document.createElement('p');bonusText.textContent='Comer saludable fuera de casa: una guía práctica para llevar contigo.';

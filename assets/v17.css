@@ -1,0 +1,46 @@
+
+/* V17: site-wide refined line icons, no decorative raster stickers */
+.rm-icon{width:100%;height:100%;display:block}
+.rm-monogram{font:italic 400 26px/1 'Instrument Serif',Georgia,serif;letter-spacing:-.15em;display:grid;place-items:center;width:48px;height:51px;color:#566b56;flex:none}
+.v3-footer .rm-monogram,.footer .rm-monogram{width:33px;height:38px;font-size:19px}
+#rm-quiz-modal .rm-modal-aside>img{display:none!important}
+#rm-quiz-modal .rm-gift-cover>img,#rm-quiz-modal .rm-bonus-strip>img{display:none!important}
+#rm-quiz-modal .rm-icon-intro-band{display:flex;gap:12px;margin:24px 0 27px}
+#rm-quiz-modal .rm-icon-intro-band span{width:67px;height:67px;display:grid;place-items:center;padding:18px;border:1px solid #cdd8c9;background:#edf1e9;border-radius:16px;color:#617b64}
+#rm-quiz-modal .rm-icon-intro-band span:nth-child(2){background:#f1e4e0;color:#9d716b;border-color:#e1d0c9}
+#rm-quiz-modal .rm-icon-intro-band span:nth-child(3){background:#e7eaf0;color:#61768a;border-color:#cfd8e2}
+#rm-quiz-modal .rm-icon-intro-band span:nth-child(4){background:#ece9dd;color:#8e7c59;border-color:#dbd6c4}
+#rm-quiz-modal .rm-icon-question-band{display:flex;gap:9px;margin:10px 0 4px}
+#rm-quiz-modal .rm-icon-question-band span{width:33px;height:33px;display:grid;place-items:center;border:1px solid #b4c1b0;border-radius:50%;padding:8px;color:#80917e}
+#rm-quiz-modal .rm-choice .rm-choice-symbol{width:47px;height:47px;min-width:47px;border-radius:12px;padding:10px;color:#627965}
+#rm-quiz-modal .rm-choice[aria-pressed=true] .rm-choice-symbol{color:#a5745f}
+#rm-quiz-modal .rm-gift-cover{align-self:center!important;min-width:0}
+#rm-quiz-modal .rm-icon-document{box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:23px;width:min(95%,206px);aspect-ratio:4/5;max-width:100%;margin:auto;padding:24px;background:linear-gradient(150deg,#fffffb,#eff2eb);border:1px solid #bbcbbc;border-radius:6px;box-shadow:10px 11px 0 #c7d0c3,10px 15px 26px #36463420;color:#647c69}
+#rm-quiz-modal .rm-icon-document>svg{width:78px;height:78px}
+#rm-quiz-modal .rm-document-lines{width:100%;display:grid;gap:10px}
+#rm-quiz-modal .rm-document-lines span{height:2px;background:#d0d9ce;width:100%}
+#rm-quiz-modal .rm-document-lines span:nth-child(2){width:88%}
+#rm-quiz-modal .rm-document-lines span:nth-child(3){width:95%}
+#rm-quiz-modal .rm-document-lines span:nth-child(4){width:67%}
+#rm-quiz-modal .rm-icon-motifs{display:flex;gap:12px;justify-content:center;width:100%;color:#6b836d}
+#rm-quiz-modal .rm-icon-motifs svg{width:34px;height:34px;max-width:25%;padding:7px;border:1px solid currentColor;border-radius:50%}
+#rm-quiz-modal .rm-gift-card[data-gift=variety] .rm-icon-document{color:#946b73}
+#rm-quiz-modal .rm-gift-card[data-gift=rhythm] .rm-icon-document{color:#617b97}
+#rm-quiz-modal .rm-gift-card[data-gift=steady] .rm-icon-document{background:#f3f5ee;box-shadow:10px 11px 0 #647d6f;color:#617866}
+#rm-quiz-modal .rm-gift-card[data-gift=steady] .rm-icon-motifs{color:#d4e3d2}
+#rm-quiz-modal .rm-bonus-strip{grid-template-columns:56px minmax(0,1fr)!important;gap:13px}
+#rm-quiz-modal .rm-bonus-icon{display:grid;place-items:center;width:55px;height:62px;padding:15px;background:#fdf9f4;color:#906c55;border:1px solid #e2ccc6;border-radius:9px}
+#rm-quiz-modal .qa-download-icon svg{width:22px;height:22px}
+.v10-specialty .v10-specialty-symbol{display:grid;place-items:center;width:62px;height:62px;padding:12px;border:1px solid #cbd6cb;border-radius:50%;color:#af856c;margin-bottom:18px}
+.rm-icon-approach{display:flex;gap:13px;margin-top:26px}
+.rm-icon-approach span{display:grid;place-items:center;width:62px;height:62px;border:1px solid #9aa99b;color:#d0decf;border-radius:50%;padding:17px}
+.v3-first .rm-apple-heart svg{width:77%;height:77%;display:block;color:#78917a;stroke-width:1.3}
+@media(max-width:620px){
+ #rm-quiz-modal .rm-icon-intro-band{gap:8px;margin:15px 0}
+ #rm-quiz-modal .rm-icon-intro-band span{width:53px;height:53px;padding:15px}
+ #rm-quiz-modal .rm-icon-document{width:155px;aspect-ratio:1;gap:13px;padding:17px}
+ #rm-quiz-modal .rm-icon-document>svg{width:53px;height:53px}
+ #rm-quiz-modal .rm-icon-motifs svg{width:30px;height:30px}
+ #rm-quiz-modal .rm-choice .rm-choice-symbol{width:42px;height:42px;min-width:42px}
+ .v10-specialty .v10-specialty-symbol{width:52px;height:52px}
+}
