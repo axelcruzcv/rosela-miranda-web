@@ -33,8 +33,9 @@ const contactModal = document.getElementById('rm-contact-modal');
 let active = null, opener = null;
 const focusable = 'button:not([disabled]),a[href],input:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex="-1"])';
 function openModal(modal) {
+  const returnFocus = active ? opener : document.activeElement;
   if (active) closeModal(false);
-  opener = document.activeElement;
+  opener = returnFocus;
   active = modal;
   modal.hidden = false;
   document.body.classList.add('rm-modal-open');
@@ -90,16 +91,22 @@ const screen = document.getElementById('rm-quiz-screen');
 const progress = document.getElementById('rm-quiz-progress');
 const counter = document.getElementById('rm-quiz-counter');
 function resetQuiz(){step=0;selected=[];gift=null;introDone=false;renderQuiz();}
+function focusQuizHeading(){
+  const pane=quizModal.querySelector('.rm-modal');
+  if(pane)pane.scrollTop=0;
+  const heading=screen.querySelector('#rm-quiz-title');
+  if(heading){heading.tabIndex=-1;heading.focus({preventScroll:true});}
+}
 function renderQuizIntro(){
   progress.style.width='0%';
-  counter.textContent='START';
+  counter.textContent='TEST DE HÁBITOS';
   screen.replaceChildren();
-  const kicker=document.createElement('p');kicker.className='eyebrow';kicker.textContent='START / BY ROSELA MIRANDA';
+  const kicker=document.createElement('p');kicker.className='eyebrow';kicker.textContent='TEST DE HÁBITOS / ROSELA MIRANDA';
   const h=document.createElement('h2');h.id='rm-quiz-title';h.textContent='Cuatro preguntas para empezar a tu ritmo.';
   const description=document.createElement('p');description.className='rm-modal-desc';
   description.textContent='Responde con lo primero que pienses y recibe un regalo con ideas prácticas para comer mejor y cuidarte en tu día a día.';
   const btn=document.createElement('button');btn.type='button';btn.className='button button-primary v10-quiz-start';btn.textContent='Comenzar ↗';
-  btn.addEventListener('click',()=>{introDone=true;renderQuiz()});
+  btn.addEventListener('click',()=>{introDone=true;renderQuiz();});
   screen.append(kicker,h,description,btn);
 }
 function renderQuiz(){
@@ -135,6 +142,7 @@ function renderQuiz(){
   next.textContent=step===options.length-1?'Recibir mi regalo ↗':'Continuar ↗';
   next.addEventListener('click',()=>{if(!selected[step])return;step++;renderQuiz();});
   controls.append(back,next);screen.append(heading,intro,grid,controls);
+  focusQuizHeading();
 }
 function renderGift(){
   const counts={plan:0,variety:0,rhythm:0,steady:0};
@@ -182,6 +190,7 @@ function renderGift(){
   const bonusLink=document.createElement('a');bonusLink.className='rm-bonus-link';bonusLink.textContent='Descargar bonus PDF ↗';bonusLink.href=new URL('../gifts/'+bonusFile,import.meta.url).href;bonusLink.download=bonusFile;
   bonusCopy.append(bonusLabel,bonusText,bonusLink);bonus.append(bonusThumb,bonusCopy);
   controls.append(save,again,contact);screen.append(eyebrow,heading,wrap,bonus,note,controls);
+  focusQuizHeading();
 }
 async function saveGift() {
   if (!gift) return;

@@ -1,4 +1,4 @@
-import './experience.js?v=visual14';
+import './experience.js?v=qa15';
 import { CONTACT_ENDPOINT, PRIVACY_APPROVED } from './config.js';
 
 // Accessible, dependency-free mobile navigation.
