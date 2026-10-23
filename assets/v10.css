@@ -107,3 +107,15 @@ body.v3-site .v10-professional{overflow:hidden}
  .v10-cv{padding:75px 6%}
 }
 @media(prefers-reduced-motion:reduce){.v10-specialty{transition:none}}
+
+/* START — compact brand-consistent welcome and honest reward status. */
+#rm-quiz-modal .v10-quiz-start{margin-top:22px;min-width:185px}
+#rm-quiz-modal .rm-gift-status{font:400 11px/1.65 'Geist',sans-serif;color:#817d72;margin:0 0 18px}
+#rm-quiz-modal .rm-modal-aside{min-width:0}
+#rm-quiz-modal .rm-choice-symbol{font-size:20px;font-family:'Geist',Arial,sans-serif;color:#7f8e76}
+#rm-quiz-modal .rm-gift-card .rm-gift-symbol{font-size:48px}
+@media(max-width:640px){
+ #rm-quiz-modal .rm-modal-content{padding:70px 22px 32px}
+ #rm-quiz-modal .rm-gift-status{font-size:11px}
+ #rm-quiz-modal .rm-choice{min-height:62px}
+}

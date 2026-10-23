@@ -35,7 +35,8 @@ function svgSymbol(step){
 }
 function updateVisual(){
   if(!rmQuiz||!rmCounter)return;
-  const step=Math.min(4,Math.max(0,parseInt(rmCounter.textContent,10)?parseInt(rmCounter.textContent,10)-1:4));
+  const raw=rmCounter.textContent.trim();
+  const step=raw==='START'?0:raw==='TU DETALLE'?4:Math.min(3,Math.max(0,(parseInt(raw,10)||1)-1));
   const aside=rmQuiz.querySelector('.rm-modal-aside');
   if(aside){
     const original=aside.querySelector('img:not(.v4-quiz-symbol)');
@@ -134,7 +135,7 @@ async function downloadTip(result){
     return y;
   };
   let y=writeWrapped(description,112,842,850,47,3);
-  ctx.font='700 22px Arial,sans-serif';ctx.fillStyle=accent;ctx.fillText('UNA IDEA PARA HOY',112,y+35);
+  ctx.font='700 22px Arial,sans-serif';ctx.fillStyle=accent;ctx.fillText('UNA IDEA PARA EMPEZAR',112,y+35);
   ctx.font='29px Arial,sans-serif';ctx.fillStyle=ink;
   writeWrapped(tip,112,y+92,850,44,4);
   ctx.font='18px Arial,sans-serif';ctx.fillStyle=ink;
@@ -147,9 +148,9 @@ async function downloadTip(result){
 }
 document.addEventListener('click',event=>{
   const button=event.target.closest('#rm-quiz-modal .rm-gift-controls button');
-  if(!button||!button.textContent.includes('Descargar'))return;
+  if(!button||!button.textContent.includes('Descargar mi tip'))return;
   event.preventDefault();event.stopImmediatePropagation();
   const result=rmQuiz.querySelector('.rm-gift-card')?.dataset.gift||'plan';
-  button.disabled=true;const previous=button.textContent;button.textContent='Preparando tu regalo…';
+  button.disabled=true;const previous=button.textContent;button.textContent='Preparando tu tip…';
   downloadTip(result).finally(()=>{button.disabled=false;button.textContent=previous;});
 },true);

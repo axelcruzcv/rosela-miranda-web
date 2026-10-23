@@ -71,23 +71,39 @@ document.addEventListener('keydown', event => {
   else if (!event.shiftKey && document.activeElement === list.at(-1)) { event.preventDefault(); list[0].focus(); }
 });
 const options = [
-  {title:'¿Qué te gustaría hacer más sencillo?',choices:[['Organizar mis comidas','plan','◫'],['Comer con más variedad','variety','✿'],['Encontrar un ritmo propio','rhythm','◷'],['Mantener pequeños cambios','steady','✧']]},
-  {title:'¿Qué te cuesta más trabajo?',choices:[['La falta de tiempo','plan','◫'],['Repetir siempre lo mismo','variety','✿'],['Los horarios cambiantes','rhythm','◷'],['Ser constante','steady','✧']]},
-  {title:'¿Cuándo buscas más claridad?',choices:[['Al preparar la semana','plan','◫'],['Al decidir qué comer','variety','✿'],['En los días ocupados','rhythm','◷'],['Cuando vuelvo a empezar','steady','✧']]},
-  {title:'¿Cuál sería un buen comienzo?',choices:[['Planificar algo pequeño','plan','◫'],['Explorar otra opción','variety','✿'],['Observar mi rutina','rhythm','◷'],['Elegir una acción posible','steady','✧']]}
+ {title:'¿Qué te gustaría hacer más sencillo?',choices:[['Organizar mis comidas de la semana','plan','◫'],['Comer más rico y más variado','variety','✿'],['Encontrar tiempo para cuidarme','rhythm','◷'],['Mantener los cambios que empiezo','steady','✦']]},
+ {title:'¿Qué te cuesta más trabajo?',choices:[['No saber qué voy a comer','plan','◫'],['Repetir siempre lo mismo','variety','✿'],['Mis horarios cambiantes o comer fuera de casa','rhythm','◷'],['Ser constante','steady','✦']]},
+ {title:'¿Cuándo buscas más claridad?',choices:[['Al preparar la semana','plan','◫'],['Al decidir qué cocinar','variety','✿'],['En los días ocupados','rhythm','◷'],['Cuando vuelvo a empezar','steady','✦']]},
+ {title:'¿Cuál sería un buen comienzo para ti?',choices:[['Preparar mis comidas con anticipación','plan','◫'],['Probar recetas nuevas y sencillas','variety','✿'],['Hacer espacio para moverme y descansar','rhythm','◷'],['Elegir un hábito pequeño y repetirlo','steady','✦']]}
 ];
 const gifts = {
-  plan: {title:'Organización sin rigidez',description:'Un punto de partida puede ser hacer espacio para planear sin buscar la perfección.',tip:'Elige una sola comida de la semana que quieras dejar pensada con anticipación.'},
-  variety: {title:'Curiosidad por explorar',description:'Tal vez lo que necesitas es volver a sentir curiosidad por tus opciones cotidianas.',tip:'Anota dos preparaciones que te gustaría descubrir, sin obligación de probarlas hoy.'},
-  rhythm: {title:'Un ritmo más tuyo',description:'Tus horarios reales merecen ser considerados cuando piensas en tus hábitos.',tip:'Observa durante dos días qué momentos te resultan más cómodos para comer.'},
-  steady: {title:'A tu propio ritmo',description:'No todos los cambios necesitan ser grandes para que valga la pena intentarlos.',tip:'Elige una acción tan sencilla que puedas repetirla incluso en un día ocupado.'}
+ plan:{title:'Planear también es cuidarte',description:'Cuando tu semana tiene una base, comer bien deja de depender de la fuerza de voluntad. Una hora de preparación puede resolverte varios días.',tip:'Elige un día fijo para planear tus comidas y hacer tu lista de compras.',reward:'Meal prep: organiza tu semana en una hora',file:'RM_Regalo_MealPrep.pdf'},
+ variety:{title:'Comer sano también es comer rico',description:'Una alimentación saludable no tiene que ser aburrida ni complicada. Con pocos ingredientes y combinaciones sencillas puedes comer variado, nutritivo y delicioso.',tip:'Esta semana prueba una receta nueva y agrega un alimento que no hayas comido en el último mes.',reward:'Recetario saludable y sencillo',file:'RM_Regalo_Recetario.pdf'},
+ rhythm:{title:'Tu bienestar también cabe en tu agenda',description:'No necesitas horas libres para cuidarte. Pequeños bloques de tiempo y rituales sencillos pueden sostener tu energía incluso en los días más ocupados.',tip:'Agenda 10 minutos de movimiento como si fuera una cita contigo.',reward:'Encuentra tu tiempo: rituales para días ocupados',file:'RM_Regalo_Rituales.pdf'},
+ steady:{title:'A tu propio ritmo',description:'No todos los cambios necesitan ser grandes para que valga la pena intentarlos. La constancia se construye con acciones pequeñas que puedes repetir.',tip:'Elige una acción tan sencilla que puedas repetirla incluso en un día ocupado.',reward:'Reto de 7 días: los 5 pilares de la buena salud',file:'RM_Regalo_Reto7Dias.pdf'}
 };
-let step = 0, selected = [], gift = null, giftId = 'plan';
+const bonusFile='RM_Bonus_ComerFuera.pdf';
+// The official gift and bonus PDFs must be uploaded before offering their downloads.
+// Until then the photo-rich on-screen tip can be saved honestly as an illustrative PNG.
+let step = 0, selected = [], gift = null, giftId = 'plan', introDone = false;
 const screen = document.getElementById('rm-quiz-screen');
 const progress = document.getElementById('rm-quiz-progress');
 const counter = document.getElementById('rm-quiz-counter');
-function resetQuiz(){step=0;selected=[];gift=null;renderQuiz();}
+function resetQuiz(){step=0;selected=[];gift=null;introDone=false;renderQuiz();}
+function renderQuizIntro(){
+  progress.style.width='0%';
+  counter.textContent='START';
+  screen.replaceChildren();
+  const kicker=document.createElement('p');kicker.className='eyebrow';kicker.textContent='START / BY ROSELA MIRANDA';
+  const h=document.createElement('h2');h.id='rm-quiz-title';h.textContent='Cuatro preguntas para empezar a tu ritmo.';
+  const description=document.createElement('p');description.className='rm-modal-desc';
+  description.textContent='Responde con lo primero que pienses y recibe un regalo con ideas prácticas para comer mejor y cuidarte en tu día a día.';
+  const btn=document.createElement('button');btn.type='button';btn.className='button button-primary v10-quiz-start';btn.textContent='Comenzar ↗';
+  btn.addEventListener('click',()=>{introDone=true;renderQuiz()});
+  screen.append(kicker,h,description,btn);
+}
 function renderQuiz(){
+  if(!introDone){renderQuizIntro();return;}
   progress.style.width = Math.round((step/options.length)*100)+'%';
   counter.textContent = step<options.length?String(step+1).padStart(2,'0')+' / 04':'TU DETALLE';
   screen.replaceChildren();
@@ -116,31 +132,36 @@ function renderQuiz(){
   const back=document.createElement('button');back.type='button';back.className='rm-quiet';back.textContent=step?'← Anterior':'Cerrar';
   back.addEventListener('click',()=>{if(!step)closeModal();else{step--;renderQuiz();}});
   const next=document.createElement('button');next.type='button';next.className='button button-primary';next.disabled=!selected[step];
-  next.textContent=step===options.length-1?'Recibir mi detalle ↗':'Continuar ↗';
+  next.textContent=step===options.length-1?'Recibir mi regalo ↗':'Continuar ↗';
   next.addEventListener('click',()=>{if(!selected[step])return;step++;renderQuiz();});
   controls.append(back,next);screen.append(heading,intro,grid,controls);
 }
 function renderGift(){
   const counts={plan:0,variety:0,rhythm:0,steady:0};
   selected.forEach(x=>{counts[x]++;});
-  const code=Object.keys(counts).sort((a,b)=>counts[b]-counts[a]||(a===selected[0]?-1:b===selected[0]?1:0))[0];
+  const max=Math.max(...Object.values(counts));
+  const tied=Object.keys(counts).filter(key=>counts[key]===max);
+  // Approved rule: among tied icons, question four breaks the tie.
+  const code=tied.includes(selected[3])?selected[3]:tied[0];
   gift=gifts[code];giftId=code;
   const eyebrow=document.createElement('p');eyebrow.className='eyebrow';eyebrow.textContent='UN DETALLE DE ROSELA PARA TI';
   const heading=document.createElement('h2');heading.id='rm-quiz-title';heading.textContent='Tu tip.';
   const giftSubtitle=document.createElement('h3');giftSubtitle.className='rm-gift-subtitle';giftSubtitle.textContent=gift.title;
   const wrap=document.createElement('div');wrap.className='rm-gift-card';
-  const emblem=document.createElement('span');emblem.className='rm-gift-symbol';emblem.textContent=({plan:'◫',variety:'❀',rhythm:'◌',steady:'✧'})[giftId];wrap.dataset.gift=giftId;
+  const emblem=document.createElement('span');emblem.className='rm-gift-symbol';emblem.textContent=({plan:'◫',variety:'✿',rhythm:'◷',steady:'✦'})[giftId];wrap.dataset.gift=giftId;
   const desc=document.createElement('p');desc.textContent=gift.description;
   const label=document.createElement('strong');label.textContent='UNA IDEA PARA EMPEZAR';
   const tip=document.createElement('p');tip.textContent=gift.tip;
   wrap.append(emblem,giftSubtitle,desc,label,tip);
   const note=document.createElement('p');note.className='rm-modal-legal';note.textContent='Este regalo es educativo y no evalúa tu salud ni sustituye una consulta.';
+  const giftStatus=document.createElement('p');giftStatus.className='rm-gift-status';giftStatus.textContent='Tu guía completa: '+gift.reward+' · pendiente de incorporación. El bonus «Cómo comer saludable fuera de casa» también está pendiente.';
+
   const controls=document.createElement('div');controls.className='rm-gift-controls';
-  const save=document.createElement('button');save.type='button';save.className='button button-primary';save.textContent='Descargar mi regalo ↓';save.addEventListener('click',saveGift);
+  const save=document.createElement('button');save.type='button';save.className='button button-primary';save.textContent='Descargar mi tip ilustrado ↓';save.addEventListener('click',saveGift);
   const again=document.createElement('button');again.type='button';again.className='rm-quiet';again.textContent='Volver a empezar';again.addEventListener('click',resetQuiz);
   const contact=document.createElement('button');contact.type='button';contact.className='rm-quiet';contact.textContent='Escribirle a Rosela ↗';
   contact.addEventListener('click',()=>openModal(contactModal));
-  controls.append(save,again,contact);screen.append(eyebrow,heading,wrap,note,controls);
+  controls.append(save,again,contact);screen.append(eyebrow,heading,wrap,note,giftStatus,controls);
 }
 async function saveGift() {
   if (!gift) return;
@@ -235,7 +256,7 @@ async function saveGift() {
   let y=wrap(gift.description,145,760,790,48,4);
   ctx.strokeStyle=theme.rule;ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(145,y+24);ctx.lineTo(935,y+24);ctx.stroke();
   ctx.fillStyle=theme.accent;ctx.font='600 20px Arial,sans-serif';
-  ctx.fillText('UNA IDEA PARA HOY',145,y+78);
+  ctx.fillText('UNA IDEA PARA EMPEZAR',145,y+78);
   ctx.fillStyle=theme.ink;ctx.font='31px Arial,sans-serif';
   wrap(gift.tip,145,y+130,790,49,4);
   ctx.fillStyle=theme.caption;
