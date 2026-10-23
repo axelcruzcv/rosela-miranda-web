@@ -134,3 +134,8 @@ body.v3-site .v10-professional{overflow:hidden}
  body.v3-site .v3-first{min-height:690px}
  body.v3-site .v3-first .v3-hero-bottom{bottom:26px}
 }
+
+/* Retain the previously approved solo professional portrait within the CV journey. */
+.v10-professional-portrait{display:block;width:min(82%,340px);height:clamp(255px,26vw,345px);position:relative;margin:40px 0 0;border-radius:190px 190px 6px 6px;overflow:hidden;background:#d2dacf;box-shadow:0 24px 48px #26372b1a}
+.v10-professional-portrait img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 26%;filter:saturate(.89)}
+@media(max-width:780px){.v10-professional-portrait{width:62%;max-width:280px;height:290px;margin:28px 0 0}}
