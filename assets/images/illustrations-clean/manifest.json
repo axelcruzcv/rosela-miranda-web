@@ -1,0 +1,663 @@
+{
+  "version": 2,
+  "method": "connected foreground components + RGBA trim",
+  "component_min_fraction": 0.14,
+  "artworks": [
+    {
+      "name": "challenge-apple",
+      "original": [
+        302,
+        364
+      ],
+      "clean": [
+        239,
+        330
+      ],
+      "components_detected": 7,
+      "components_kept": 1,
+      "fragments_removed": 6,
+      "alpha_transparency": 0.5502,
+      "bytes": 125940
+    },
+    {
+      "name": "challenge-calendar",
+      "original": [
+        406,
+        397
+      ],
+      "clean": [
+        395,
+        361
+      ],
+      "components_detected": 5,
+      "components_kept": 1,
+      "fragments_removed": 4,
+      "alpha_transparency": 0.354,
+      "bytes": 160680
+    },
+    {
+      "name": "challenge-checklist",
+      "original": [
+        363,
+        365
+      ],
+      "clean": [
+        317,
+        365
+      ],
+      "components_detected": 3,
+      "components_kept": 1,
+      "fragments_removed": 2,
+      "alpha_transparency": 0.3482,
+      "bytes": 115299
+    },
+    {
+      "name": "challenge-heart",
+      "original": [
+        345,
+        259
+      ],
+      "clean": [
+        286,
+        259
+      ],
+      "components_detected": 12,
+      "components_kept": 2,
+      "fragments_removed": 10,
+      "alpha_transparency": 0.6556,
+      "bytes": 103897
+    },
+    {
+      "name": "challenge-medal",
+      "original": [
+        270,
+        365
+      ],
+      "clean": [
+        242,
+        340
+      ],
+      "components_detected": 4,
+      "components_kept": 1,
+      "fragments_removed": 3,
+      "alpha_transparency": 0.5054,
+      "bytes": 135656
+    },
+    {
+      "name": "challenge-seven",
+      "original": [
+        415,
+        307
+      ],
+      "clean": [
+        406,
+        307
+      ],
+      "components_detected": 2,
+      "components_kept": 1,
+      "fragments_removed": 1,
+      "alpha_transparency": 0.1902,
+      "bytes": 125980
+    },
+    {
+      "name": "challenge-trophy",
+      "original": [
+        335,
+        366
+      ],
+      "clean": [
+        287,
+        301
+      ],
+      "components_detected": 15,
+      "components_kept": 1,
+      "fragments_removed": 14,
+      "alpha_transparency": 0.7202,
+      "bytes": 157099
+    },
+    {
+      "name": "challenge-waterbottle",
+      "original": [
+        223,
+        410
+      ],
+      "clean": [
+        148,
+        369
+      ],
+      "components_detected": 10,
+      "components_kept": 1,
+      "fragments_removed": 9,
+      "alpha_transparency": 0.6317,
+      "bytes": 68031
+    },
+    {
+      "name": "outdoors-coffee",
+      "original": [
+        343,
+        309
+      ],
+      "clean": [
+        312,
+        264
+      ],
+      "components_detected": 3,
+      "components_kept": 1,
+      "fragments_removed": 2,
+      "alpha_transparency": 0.5138,
+      "bytes": 132858
+    },
+    {
+      "name": "outdoors-foodbowl",
+      "original": [
+        430,
+        361
+      ],
+      "clean": [
+        403,
+        361
+      ],
+      "components_detected": 3,
+      "components_kept": 1,
+      "fragments_removed": 2,
+      "alpha_transparency": 0.284,
+      "bytes": 317357
+    },
+    {
+      "name": "outdoors-marketbag",
+      "original": [
+        354,
+        338
+      ],
+      "clean": [
+        299,
+        224
+      ],
+      "components_detected": 12,
+      "components_kept": 1,
+      "fragments_removed": 11,
+      "alpha_transparency": 0.5531,
+      "bytes": 87833
+    },
+    {
+      "name": "outdoors-menu",
+      "original": [
+        347,
+        410
+      ],
+      "clean": [
+        327,
+        392
+      ],
+      "components_detected": 8,
+      "components_kept": 1,
+      "fragments_removed": 7,
+      "alpha_transparency": 0.5726,
+      "bytes": 154542
+    },
+    {
+      "name": "outdoors-restaurant",
+      "original": [
+        326,
+        367
+      ],
+      "clean": [
+        323,
+        367
+      ],
+      "components_detected": 4,
+      "components_kept": 2,
+      "fragments_removed": 2,
+      "alpha_transparency": 0.502,
+      "bytes": 239158
+    },
+    {
+      "name": "outdoors-takeout",
+      "original": [
+        407,
+        410
+      ],
+      "clean": [
+        369,
+        351
+      ],
+      "components_detected": 8,
+      "components_kept": 2,
+      "fragments_removed": 6,
+      "alpha_transparency": 0.5504,
+      "bytes": 217289
+    },
+    {
+      "name": "prep-clipboard",
+      "original": [
+        306,
+        370
+      ],
+      "clean": [
+        306,
+        370
+      ],
+      "components_detected": 5,
+      "components_kept": 1,
+      "fragments_removed": 4,
+      "alpha_transparency": 0.3613,
+      "bytes": 136471
+    },
+    {
+      "name": "prep-clock",
+      "original": [
+        303,
+        308
+      ],
+      "clean": [
+        284,
+        281
+      ],
+      "components_detected": 5,
+      "components_kept": 1,
+      "fragments_removed": 4,
+      "alpha_transparency": 0.3668,
+      "bytes": 109817
+    },
+    {
+      "name": "prep-containers",
+      "original": [
+        289,
+        410
+      ],
+      "clean": [
+        280,
+        372
+      ],
+      "components_detected": 7,
+      "components_kept": 1,
+      "fragments_removed": 6,
+      "alpha_transparency": 0.2776,
+      "bytes": 248200
+    },
+    {
+      "name": "prep-foodbowl",
+      "original": [
+        405,
+        378
+      ],
+      "clean": [
+        363,
+        359
+      ],
+      "components_detected": 18,
+      "components_kept": 1,
+      "fragments_removed": 17,
+      "alpha_transparency": 0.424,
+      "bytes": 312990
+    },
+    {
+      "name": "prep-mealbox",
+      "original": [
+        430,
+        368
+      ],
+      "clean": [
+        430,
+        337
+      ],
+      "components_detected": 4,
+      "components_kept": 1,
+      "fragments_removed": 3,
+      "alpha_transparency": 0.3786,
+      "bytes": 327741
+    },
+    {
+      "name": "prep-planner",
+      "original": [
+        430,
+        308
+      ],
+      "clean": [
+        430,
+        302
+      ],
+      "components_detected": 2,
+      "components_kept": 1,
+      "fragments_removed": 1,
+      "alpha_transparency": 0.1764,
+      "bytes": 118454
+    },
+    {
+      "name": "prep-waterbottle",
+      "original": [
+        145,
+        410
+      ],
+      "clean": [
+        132,
+        389
+      ],
+      "components_detected": 7,
+      "components_kept": 1,
+      "fragments_removed": 6,
+      "alpha_transparency": 0.3926,
+      "bytes": 68572
+    },
+    {
+      "name": "recipes-berries",
+      "original": [
+        308,
+        330
+      ],
+      "clean": [
+        308,
+        330
+      ],
+      "components_detected": 7,
+      "components_kept": 4,
+      "fragments_removed": 3,
+      "alpha_transparency": 0.3487,
+      "bytes": 228940
+    },
+    {
+      "name": "recipes-foodbowl",
+      "original": [
+        411,
+        385
+      ],
+      "clean": [
+        411,
+        368
+      ],
+      "components_detected": 5,
+      "components_kept": 1,
+      "fragments_removed": 4,
+      "alpha_transparency": 0.2288,
+      "bytes": 366898
+    },
+    {
+      "name": "recipes-lemon",
+      "original": [
+        312,
+        313
+      ],
+      "clean": [
+        312,
+        313
+      ],
+      "components_detected": 7,
+      "components_kept": 5,
+      "fragments_removed": 2,
+      "alpha_transparency": 0.4584,
+      "bytes": 203099
+    },
+    {
+      "name": "recipes-notebook",
+      "original": [
+        430,
+        274
+      ],
+      "clean": [
+        413,
+        274
+      ],
+      "components_detected": 2,
+      "components_kept": 1,
+      "fragments_removed": 1,
+      "alpha_transparency": 0.2125,
+      "bytes": 136414
+    },
+    {
+      "name": "recipes-soup",
+      "original": [
+        395,
+        325
+      ],
+      "clean": [
+        360,
+        302
+      ],
+      "components_detected": 11,
+      "components_kept": 1,
+      "fragments_removed": 10,
+      "alpha_transparency": 0.4378,
+      "bytes": 210251
+    },
+    {
+      "name": "rewards-appleheart",
+      "original": [
+        430,
+        277
+      ],
+      "clean": [
+        430,
+        224
+      ],
+      "components_detected": 19,
+      "components_kept": 1,
+      "fragments_removed": 18,
+      "alpha_transparency": 0.6926,
+      "bytes": 192895
+    },
+    {
+      "name": "rewards-badge",
+      "original": [
+        407,
+        384
+      ],
+      "clean": [
+        289,
+        371
+      ],
+      "components_detected": 8,
+      "components_kept": 1,
+      "fragments_removed": 7,
+      "alpha_transparency": 0.6077,
+      "bytes": 181161
+    },
+    {
+      "name": "rewards-book",
+      "original": [
+        323,
+        369
+      ],
+      "clean": [
+        323,
+        319
+      ],
+      "components_detected": 3,
+      "components_kept": 1,
+      "fragments_removed": 2,
+      "alpha_transparency": 0.4874,
+      "bytes": 154937
+    },
+    {
+      "name": "rewards-download",
+      "original": [
+        330,
+        330
+      ],
+      "clean": [
+        330,
+        330
+      ],
+      "components_detected": 8,
+      "components_kept": 3,
+      "fragments_removed": 5,
+      "alpha_transparency": 0.4697,
+      "bytes": 155572
+    },
+    {
+      "name": "rewards-gift",
+      "original": [
+        349,
+        410
+      ],
+      "clean": [
+        349,
+        410
+      ],
+      "components_detected": 5,
+      "components_kept": 1,
+      "fragments_removed": 4,
+      "alpha_transparency": 0.381,
+      "bytes": 233646
+    },
+    {
+      "name": "rewards-ribbon",
+      "original": [
+        430,
+        290
+      ],
+      "clean": [
+        430,
+        290
+      ],
+      "components_detected": 16,
+      "components_kept": 5,
+      "fragments_removed": 11,
+      "alpha_transparency": 0.5359,
+      "bytes": 235886
+    },
+    {
+      "name": "rewards-ticket",
+      "original": [
+        424,
+        339
+      ],
+      "clean": [
+        424,
+        339
+      ],
+      "components_detected": 5,
+      "components_kept": 3,
+      "fragments_removed": 2,
+      "alpha_transparency": 0.4788,
+      "bytes": 230014
+    },
+    {
+      "name": "rituals-alarm",
+      "original": [
+        350,
+        370
+      ],
+      "clean": [
+        350,
+        293
+      ],
+      "components_detected": 8,
+      "components_kept": 2,
+      "fragments_removed": 6,
+      "alpha_transparency": 0.6375,
+      "bytes": 135753
+    },
+    {
+      "name": "rituals-candle",
+      "original": [
+        336,
+        333
+      ],
+      "clean": [
+        227,
+        260
+      ],
+      "components_detected": 7,
+      "components_kept": 1,
+      "fragments_removed": 6,
+      "alpha_transparency": 0.6161,
+      "bytes": 64475
+    },
+    {
+      "name": "rituals-heart",
+      "original": [
+        320,
+        292
+      ],
+      "clean": [
+        320,
+        292
+      ],
+      "components_detected": 11,
+      "components_kept": 5,
+      "fragments_removed": 6,
+      "alpha_transparency": 0.7589,
+      "bytes": 140245
+    },
+    {
+      "name": "rituals-journal",
+      "original": [
+        416,
+        353
+      ],
+      "clean": [
+        387,
+        311
+      ],
+      "components_detected": 4,
+      "components_kept": 1,
+      "fragments_removed": 3,
+      "alpha_transparency": 0.4435,
+      "bytes": 175406
+    },
+    {
+      "name": "rituals-moon",
+      "original": [
+        302,
+        322
+      ],
+      "clean": [
+        276,
+        312
+      ],
+      "components_detected": 6,
+      "components_kept": 1,
+      "fragments_removed": 5,
+      "alpha_transparency": 0.7245,
+      "bytes": 93205
+    },
+    {
+      "name": "rituals-sneakers",
+      "original": [
+        430,
+        352
+      ],
+      "clean": [
+        372,
+        339
+      ],
+      "components_detected": 8,
+      "components_kept": 2,
+      "fragments_removed": 6,
+      "alpha_transparency": 0.5084,
+      "bytes": 229227
+    },
+    {
+      "name": "rituals-tea",
+      "original": [
+        430,
+        299
+      ],
+      "clean": [
+        412,
+        293
+      ],
+      "components_detected": 3,
+      "components_kept": 1,
+      "fragments_removed": 2,
+      "alpha_transparency": 0.3795,
+      "bytes": 159283
+    },
+    {
+      "name": "rituals-yoga",
+      "original": [
+        384,
+        385
+      ],
+      "clean": [
+        370,
+        379
+      ],
+      "components_detected": 6,
+      "components_kept": 1,
+      "fragments_removed": 5,
+      "alpha_transparency": 0.4591,
+      "bytes": 241012
+    }
+  ]
+}
