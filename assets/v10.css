@@ -139,3 +139,11 @@ body.v3-site .v10-professional{overflow:hidden}
 .v10-professional-portrait{display:block;width:min(82%,340px);height:clamp(255px,26vw,345px);position:relative;margin:40px 0 0;border-radius:190px 190px 6px 6px;overflow:hidden;background:#d2dacf;box-shadow:0 24px 48px #26372b1a}
 .v10-professional-portrait img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 26%;filter:saturate(.89)}
 @media(max-width:780px){.v10-professional-portrait{width:62%;max-width:280px;height:290px;margin:28px 0 0}}
+
+
+/* Mid-width devices use the hamburger, never a six-column popover. */
+@media(min-width:781px) and (max-width:900px){
+ body.v3-site .v3-nav.is-open{display:grid;grid-template-columns:minmax(0,1fr);max-width:440px;left:auto;right:18px;top:83px;width:min(440px,calc(100vw - 36px));height:auto;padding:12px 24px;border-radius:22px;background:#f8f7f2;box-shadow:0 24px 60px #263d3333}
+ body.v3-site .v3-nav.is-open>a,body.v3-site .v3-nav.is-open>button{display:block;width:100%;white-space:normal;text-align:center;font:500 14px/1.35 'Geist',Arial,sans-serif;min-height:52px;padding:15px 8px;border-right:0;border-bottom:1px solid #d8ded4}
+ body.v3-site .v3-nav.is-open>:last-child{border-bottom:0}
+}
