@@ -147,3 +147,22 @@ body.v3-site .v10-professional{overflow:hidden}
  body.v3-site .v3-nav.is-open>a,body.v3-site .v3-nav.is-open>button{display:block;width:100%;white-space:normal;text-align:center;font:500 14px/1.35 'Geist',Arial,sans-serif;min-height:52px;padding:15px 8px;border-right:0;border-bottom:1px solid #d8ded4}
  body.v3-site .v3-nav.is-open>:last-child{border-bottom:0}
 }
+
+/* V12 · Desktop hero: visual breathing room around the apple-to-heart morph.
+   Lower and reduce the decorative icon; preserve its scroll-driven frames. */
+@media (min-width: 781px) {
+  body.v3-site .v3-first .rm-apple-heart {
+    left: clamp(110px, 12vw, 210px);
+    bottom: clamp(18px, 3.5svh, 35px);
+    width: clamp(116px, 12.5vw, 170px);
+    height: clamp(130px, 14vw, 188px);
+  }
+}
+@media (min-width: 781px) and (max-width: 1150px) {
+  body.v3-site .v3-first .rm-apple-heart {
+    left: 12%;
+    bottom: 28px;
+    width: 126px;
+    height: 143px;
+  }
+}
