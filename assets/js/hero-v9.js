@@ -4,7 +4,7 @@
 (() => {
   const hero = document.querySelector('.v3-first[data-motion-v9]');
   const icon = hero?.querySelector('[data-apple-heart]');
-  const image = icon?.querySelector('img');
+  const image = icon;
   if (!hero || !image) return;
 
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -36,11 +36,12 @@
       return;
     }
     const scroll = Math.max(0, window.scrollY - hero.offsetTop);
-    const progress = Math.min(1, scroll / Math.max(1, heroHeight * 0.85));
+    const progress = Math.min(1, scroll / Math.max(1, Math.min(heroHeight * 0.35, 260)));
     const next = Math.min(5, Math.floor(progress * 6));
     if (next !== frame) {
       image.src = filenames[next];
       frame = next;
+      image.style.transform = `translate3d(0,${(-Math.sin(progress * Math.PI) * 7).toFixed(1)}px,0)`;
     }
 
     if (desktop.matches) {

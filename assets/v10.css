@@ -1,0 +1,109 @@
+
+/* Rosela v10 — composition and editorial clinical destination */
+@media (min-width:781px) {
+  body.v3-site .v3-nav{grid-template-columns:repeat(6,minmax(0,1fr));max-width:none;gap:0}
+  body.v3-site .v3-nav>a,body.v3-site .v3-nav>button{font:500 clamp(10px,.98vw,14px)/1.15 'Geist',Arial,sans-serif;white-space:normal;min-width:0;padding:0 5px;min-height:24px}
+  body.v3-site .v3-header{gap:clamp(18px,2vw,40px)}
+  body.v3-site .v3-header .v3-brand{min-width:clamp(155px,17vw,255px)}
+  body.v3-site .v3-first{height:clamp(605px,86svh,930px);min-height:605px}
+  body.v3-site .v3-first .v3-hero-head{top:clamp(144px,18svh,220px)}
+  body.v3-site .v3-first .v3-hero-bottom{left:clamp(425px,40vw,740px);bottom:clamp(82px,12svh,150px);width:min(370px,29vw);padding:15px 18px;max-width:none}
+  body.v3-site .v3-first .v3-hero-bottom p{font-size:clamp(12px,1.05vw,15px);line-height:1.52}
+  body.v3-site .v3-first .rm-apple-heart{left:clamp(120px,14.5vw,260px);bottom:clamp(42px,8svh,90px);width:clamp(160px,17vw,245px);height:clamp(176px,20vw,268px);z-index:4;background:none}
+  body.v3-site .v3-first .v10-discover{position:absolute;left:clamp(35px,4vw,76px);right:auto;bottom:clamp(18px,2.5svh,30px);z-index:7;display:flex;flex-direction:column;gap:0;width:44px;height:52px;align-items:center;justify-content:center;letter-spacing:0;color:#a07b6e;transition:transform .2s,color .2s}
+  body.v3-site .v3-first .v10-discover:hover{transform:translateY(3px);color:#704b40}
+  body.v3-site .v3-first .v10-discover>svg{flex-shrink:0}
+  body.v3-site .v3-first .v10-discover .v10-discover-arrow{font-size:17px;line-height:1}
+  body.v3-site .v3-podcast{height:clamp(245px,27svh,325px)}
+}
+@media (min-width:781px) and (max-width:1150px){
+  body.v3-site .v3-first .v3-hero-bottom{left:48%;bottom:12%;width:37%;max-width:355px}
+  body.v3-site .v3-first .rm-apple-heart{left:12%;bottom:9%;width:150px;height:170px}
+  body.v3-site .v3-first .v3-hero-head h1{font-size:clamp(50px,5.8vw,70px)}
+}
+@media (max-width:780px){
+ body.v3-site .v3-nav{grid-template-columns:1fr}
+ body.v3-site .v3-first .rm-apple-heart{width:118px;height:134px;margin:4px auto 12px;background:none;justify-self:center}
+ body.v3-site .v3-first .v10-discover{display:none}
+ body.v3-site .v3-first .v3-hero-bottom p{font-size:14px;line-height:1.6}
+}
+html{scroll-padding-top:28px}
+body.v3-site .v10-professional{overflow:hidden}
+.v10-professional section[id]{scroll-margin-top:15px}
+.v10-clinical{display:grid;grid-template-columns:47% 53%;min-height:min(90svh,900px);padding-top:110px;background:#e5e6e2}
+.v10-clinical-visual{margin:0;position:relative;overflow:hidden;min-height:570px;background:#606d5c}
+.v10-clinical-visual img{width:100%;height:100%;object-fit:cover;filter:saturate(.77) contrast(.96);display:block}
+.v10-clinical-visual:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(0deg,#152b20a6,transparent 39%)}
+.v10-visual-credit{position:absolute;bottom:37px;left:9%;right:15px;z-index:2;letter-spacing:.17em;color:#f3eee2;font:600 10px 'Geist',sans-serif}
+.v10-clinical-text{display:flex;flex-direction:column;justify-content:center;padding:60px clamp(35px,6vw,105px)}
+.v10-clinical-text .v3-label{color:#986e5e}
+.v10-clinical-text h1{font:400 clamp(55px,5.8vw,105px)/.96 'Instrument Serif',Georgia,serif;letter-spacing:-.035em;color:#657364;margin:23px 0 30px}
+.v10-clinical-text h1 em,.v10-professional h2 em{color:#b5836e;font-weight:400}
+.v10-clinical-text>p{color:#586756;max-width:585px;font:400 clamp(14px,1.28vw,18px)/1.78 'Geist',sans-serif;margin:0 0 28px}
+.v10-quiet-link{display:inline-flex;align-items:center;gap:22px;width:max-content;max-width:100%;padding:5px 0 8px;border-bottom:1px solid #b99281;color:#805f53;font:600 12px 'Geist',sans-serif;text-decoration:none}
+.v10-specialties{background:#f6f1e9;padding:clamp(72px,8vw,130px) clamp(25px,8vw,130px)}
+.v10-section-heading{max-width:770px;margin-bottom:55px}
+.v10-professional h2{font:400 clamp(49px,5.3vw,90px)/.99 'Instrument Serif',Georgia,serif;letter-spacing:-.026em;color:#667466;margin:16px 0}
+.v10-specialty-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid #cbd0c4;border-left:1px solid #cbd0c4}
+.v10-specialty{position:relative;padding:35px clamp(19px,2.8vw,46px) 38px;min-height:240px;border-right:1px solid #cbd0c4;border-bottom:1px solid #cbd0c4;transition:background .2s}
+.v10-specialty:hover{background:#ebede6}
+.v10-specialty-symbol{font:400 33px/1 'Instrument Serif',Georgia,serif;color:#b9856d;display:block;margin-bottom:25px}
+.v10-specialty-index{position:absolute;top:33px;right:34px;color:#8a9587;font-size:10px;letter-spacing:.14em}
+.v10-specialty h3{font:400 clamp(25px,2.2vw,36px)/1.08 'Instrument Serif',Georgia,serif;color:#455b48;margin:0 0 12px}
+.v10-specialty p{font:400 13px/1.7 'Geist',sans-serif;color:#737d70;margin:0;max-width:340px}
+.v10-approach{background:radial-gradient(ellipse at 91% 15%,#6d514457,transparent 60%),linear-gradient(115deg,#27382f,#344a3b 68%,#493c34);color:#f0ede1;padding:clamp(75px,9vw,140px) clamp(26px,8vw,135px);display:grid;grid-template-columns:1fr 1fr;gap:9%}
+.v10-approach .v3-label{color:#d2b197}
+.v10-approach h2{color:#f3f0e7;margin:20px 0 32px}
+.v10-approach-lead>p{font-size:15px;line-height:1.85;color:#c7d1c2;max-width:570px}
+.v10-approach-list{align-self:center;border-top:1px solid #d4dcc34f}
+.v10-approach-list>div{padding:24px 10px 26px;border-bottom:1px solid #d4dcc34f}
+.v10-approach-list span{color:#dfb89c;font:600 10px 'Geist',sans-serif;letter-spacing:.15em}
+.v10-approach-list h3{font:400 clamp(25px,2.3vw,40px) 'Instrument Serif',Georgia,serif;color:#f5efe4;margin:12px 0 7px}
+.v10-approach-list p{font:400 13px/1.65 'Geist',sans-serif;color:#b9c9b9;margin:0}
+.v10-trajectory{background:#e4e8df;padding:clamp(75px,9vw,130px) clamp(26px,8vw,135px);display:grid;grid-template-columns:.9fr 1.1fr;gap:8%}
+.v10-trajectory .v3-label{color:#a27863}
+.v10-trajectory-title h2{max-width:570px}
+.v10-trajectory-items{border-top:1px solid #bfc8ba}
+.v10-trajectory-items article{border-bottom:1px solid #bfc8ba;padding:25px 0 30px}
+.v10-trajectory-items span{font:600 11px/1.45 'Geist',sans-serif;letter-spacing:.13em;color:#b08069}
+.v10-trajectory-items h3{font:400 36px 'Instrument Serif',Georgia,serif;color:#4c5f4f;margin:10px 0}
+.v10-trajectory-items p{font:400 14px/1.72 'Geist',sans-serif;color:#637464;max-width:510px;margin:0}
+.v10-medicalima{min-height:clamp(530px,55svh,720px)}
+.v10-medicalima .v3-lima-copy .v3-label{color:#896e5f}
+.v10-medicalima .v3-lima-copy h2{font-size:clamp(54px,5.3vw,90px)}
+.v10-training{display:grid;grid-template-columns:45% 55%;background:#f6f1e9}
+.v10-training-photo{position:relative;min-height:670px;overflow:hidden;background:#6e7e71}
+.v10-training-photo>img{height:100%;width:100%;object-fit:cover;filter:sepia(.13) saturate(.62) brightness(.88)}
+.v10-training-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#192c1d9c,transparent 40%)}
+.v10-training-photo>span{position:absolute;bottom:30px;left:40px;z-index:1;color:#fff7ee;font:600 11px 'Geist',sans-serif;letter-spacing:.12em}
+.v10-training-content{padding:clamp(65px,7.5vw,120px) clamp(28px,6vw,100px)}
+.v10-training-content ul{list-style:none;margin:36px 0;padding:0;border-top:1px solid #c2cdc0}
+.v10-training-content li{padding:18px 0;border-bottom:1px solid #c2cdc0;color:#4b5c4f;font:500 15px/1.55 'Geist',sans-serif}
+.v10-training-content li span{display:block;color:#939e91;font-size:12px;font-weight:400;margin-top:3px}
+.v10-cv{scroll-margin-top:10px}
+@media(max-width:1000px){.v10-specialty-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.v10-clinical-text{padding:50px 6vw}.v10-clinical-text h1{font-size:clamp(46px,5.7vw,75px)}}
+@media(max-width:780px){
+ .v10-clinical{display:flex;flex-direction:column;padding-top:96px;min-height:0}
+ .v10-clinical-text{order:0;padding:34px 6% 36px}
+ .v10-clinical-visual{order:1;min-height:0;height:45svh;max-height:420px}
+ .v10-clinical-text h1{font-size:clamp(49px,10vw,72px);margin:19px 0}
+ .v10-clinical-text>p{font-size:14px;line-height:1.65}
+ .v10-specialties{padding:64px 6%}
+ .v10-section-heading{margin-bottom:35px}
+ .v10-professional h2{font-size:clamp(46px,10vw,72px)}
+ .v10-specialty-grid{grid-template-columns:1fr}
+ .v10-specialty{min-height:0;padding:22px 24px 27px}
+ .v10-specialty-symbol{font-size:27px;margin-bottom:13px}
+ .v10-specialty h3{font-size:30px}
+ .v10-approach,.v10-trajectory{display:block;padding:68px 6%}
+ .v10-approach-list,.v10-trajectory-items{margin-top:38px}
+ .v10-medicalima{display:flex;flex-direction:column;min-height:0}
+ .v10-medicalima .v5-lima-image{height:390px;min-height:0;order:0}
+ .v10-medicalima .v3-lima-copy{order:1;padding:58px 6%}
+ .v10-medicalima .v3-lima-copy h2{font-size:clamp(52px,10vw,72px)}
+ .v10-training{display:flex;flex-direction:column}
+ .v10-training-photo{min-height:0;height:300px;order:1}
+ .v10-training-content{order:0;padding:70px 6%}
+ .v10-cv{padding:75px 6%}
+}
+@media(prefers-reduced-motion:reduce){.v10-specialty{transition:none}}

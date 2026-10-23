@@ -61,8 +61,7 @@ def to_article(p, day):
 <header class="v3-header" data-header>
 <a class="v3-brand" href="../../" aria-label="Rosela Miranda, inicio"><img src="../../assets/images/rosela-monogram.png" width="48" height="62" decoding="async" alt=""><span class="v3-wordmark"><span>Rosela</span> Miranda</span></a>
 <button type="button" class="menu-toggle v3-mobile-menu" aria-label="Abrir menú" data-menu-button aria-controls="primary-nav" aria-expanded="false"><span></span><span></span></button>
-<nav class="v3-nav" id="primary-nav" data-menu aria-label="Navegación principal">
-<a href="../../">Inicio</a><a href="../../cv/">Perfil Profesional</a><button type="button" data-open-quiz>Test de hábitos</button><a aria-current="page" href="../">Blog</a></nav></header>
+<nav class="v3-nav" id="primary-nav" data-menu aria-label="Navegación principal"><a href="../../">Inicio</a><a href="../../cv/#acompanamiento">A quién acompaño</a><a href="../../cv/#enfoque">Mi enfoque</a><a href="../../cv/#perfil-profesional">Perfil Profesional</a><button type="button" data-open-quiz>Test de hábitos</button><a href="../../blog/">Blog</a></nav></header>
 <main id="contenido" class="v3-blog-gallery"><article class="rm-blog-article" data-post="{slug}">
 <p class="v3-label"><time datetime="{day.isoformat()}">{day.strftime("%d · %m · %Y")}</time></p>
 <h1>{title}</h1><p class="rm-modal-desc">{subtitle}</p>
