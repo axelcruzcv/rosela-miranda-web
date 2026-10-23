@@ -67,7 +67,7 @@ function updateVisual(){
   }
   if(step!==4)return;
   const card=rmQuiz.querySelector('.rm-gift-card');
-  if(!card||card.querySelector('.v4-gift-images'))return;
+  if(!card||card.querySelector('.v4-gift-images')||card.querySelector('.rm-gift-cover'))return;
   const code=card.dataset.gift||'plan';
   const pictures=mediaByResult[code]||mediaByResult.plan;
   const group=document.createElement('div');group.className='v4-gift-images';

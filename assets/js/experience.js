@@ -152,16 +152,36 @@ function renderGift(){
   const desc=document.createElement('p');desc.textContent=gift.description;
   const label=document.createElement('strong');label.textContent='UNA IDEA PARA EMPEZAR';
   const tip=document.createElement('p');tip.textContent=gift.tip;
-  wrap.append(emblem,giftSubtitle,desc,label,tip);
+  
+  const copy=document.createElement('div');copy.className='rm-gift-copy';
+  copy.append(emblem,giftSubtitle,desc,label,tip);
+  const preview=document.createElement('figure');preview.className='rm-gift-cover';
+  const previewImg=document.createElement('img');
+  previewImg.src=new URL('../images/gifts/'+gift.file.replace('.pdf','.webp'),import.meta.url).href;
+  previewImg.alt='Vista previa de '+gift.reward;previewImg.width=410;previewImg.height=580;previewImg.loading='lazy';previewImg.decoding='async';
+  const caption=document.createElement('figcaption');caption.textContent='TU GUÍA PERSONALIZADA';
+  preview.append(previewImg,caption);
+  wrap.append(copy,preview);
   const note=document.createElement('p');note.className='rm-modal-legal';note.textContent='Este regalo es educativo y no evalúa tu salud ni sustituye una consulta.';
-  const giftStatus=document.createElement('p');giftStatus.className='rm-gift-status';giftStatus.textContent='Tu guía completa: '+gift.reward+' · pendiente de incorporación. El bonus «Cómo comer saludable fuera de casa» también está pendiente.';
+  
 
   const controls=document.createElement('div');controls.className='rm-gift-controls';
-  const save=document.createElement('button');save.type='button';save.className='button button-primary';save.textContent='Descargar mi tip ilustrado ↓';save.addEventListener('click',saveGift);
+  
+  const save=document.createElement('a');save.className='button button-primary rm-pdf-download';
+  save.href=new URL('../gifts/'+gift.file,import.meta.url).href;save.download=gift.file;
+  save.textContent=({plan:'Descargar mi guía de meal prep',variety:'Descargar mi recetario',rhythm:'Descargar mis rituales',steady:'Descargar mi reto de 7 días'})[giftId]+' ↓';
   const again=document.createElement('button');again.type='button';again.className='rm-quiet';again.textContent='Volver a empezar';again.addEventListener('click',resetQuiz);
   const contact=document.createElement('button');contact.type='button';contact.className='rm-quiet';contact.textContent='Escribirle a Rosela ↗';
   contact.addEventListener('click',()=>openModal(contactModal));
-  controls.append(save,again,contact);screen.append(eyebrow,heading,wrap,note,giftStatus,controls);
+  
+  const bonus=document.createElement('aside');bonus.className='rm-bonus-strip';
+  const bonusThumb=document.createElement('img');bonusThumb.src=new URL('../images/gifts/RM_Bonus_ComerFuera.webp',import.meta.url).href;bonusThumb.alt='Vista previa del bonus: Comer saludable fuera de casa';bonusThumb.loading='lazy';bonusThumb.width=88;bonusThumb.height=120;
+  const bonusCopy=document.createElement('div');
+  const bonusLabel=document.createElement('strong');bonusLabel.textContent='Y además, un bonus para ti.';
+  const bonusText=document.createElement('p');bonusText.textContent='Comer saludable fuera de casa: una guía práctica para llevar contigo.';
+  const bonusLink=document.createElement('a');bonusLink.className='rm-bonus-link';bonusLink.textContent='Descargar bonus PDF ↗';bonusLink.href=new URL('../gifts/'+bonusFile,import.meta.url).href;bonusLink.download=bonusFile;
+  bonusCopy.append(bonusLabel,bonusText,bonusLink);bonus.append(bonusThumb,bonusCopy);
+  controls.append(save,again,contact);screen.append(eyebrow,heading,wrap,bonus,note,controls);
 }
 async function saveGift() {
   if (!gift) return;
