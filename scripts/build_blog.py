@@ -55,7 +55,7 @@ def to_article(p, day):
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../assets/styles.css"><link rel="stylesheet" href="../../assets/v3.css"><link rel="stylesheet" href="../../assets/v4.css?v=mobile6">
-<script type="module" src="../../assets/js/site.js?v=gifts13"></script><script type="module" src="../../assets/js/v3.js?v=mobile6"></script><script type="module" src="../../assets/js/v4.js?v=gifts13"></script>
+<script type="module" src="../../assets/js/site.js?v=gifts13"></script><script type="module" src="../../assets/js/v3.js?v=mobile6"></script><script type="module" src="../../assets/js/v4.js?v=gifts13"></script><script type="module" src="../../assets/js/v14.js?v=14"></script>
 <title>{title} | Rosela Miranda</title></head><body class="v3-site">
 <a class="skip-link" href="#contenido">Saltar al contenido</a>
 <header class="v3-header" data-header>
