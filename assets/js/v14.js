@@ -124,7 +124,7 @@ if(screen && counter){
  enhance();
 }
 // Professional page: recognizable visual motifs, never clinical diagrams.
-const specialtyArt=['rituals-heart','recipes-foodbowl','rewards-book','rituals-tea','challenge-sneakers','prep-clipboard'];
+const specialtyArt=['rituals-heart','recipes-foodbowl','rewards-book','rituals-tea','rituals-sneakers','prep-clipboard'];
 document.querySelectorAll('.v10-specialty').forEach((card,i)=>{
  const symbol=card.querySelector('.v10-specialty-symbol');
  if(symbol && specialtyArt[i]){symbol.textContent='';symbol.append(decorative(specialtyArt[i],'v14-specialty-image'));}
