@@ -62,7 +62,7 @@ function enrich(){
   }
   const bonus=screen.querySelector('.rm-bonus-strip');
   if(bonus){
-   bonus.querySelectorAll('img').forEach(n=>n.remove());
+   bonus.querySelectorAll('img,.rm-bonus-document-icon').forEach(n=>n.remove());
    const symbol=document.createElement('span');symbol.className='rm-bonus-icon';symbol.append(ico('utensils'));bonus.prepend(symbol);
   }
   const dl=gift.querySelector('.qa-download-icon');if(dl)dl.replaceChildren(ico('down'));
@@ -191,4 +191,16 @@ p.write_text(s,encoding='utf-8')
 for path in ['index.html','cv/index.html','blog/index.html','privacidad/index.html']:
  s=(ROOT/path).read_text()
  assert 'v16.js?v=16' not in s and 'rosela-monogram.png' not in s, path
-print('Site icon redesign: 4 pages + dynamic blog template + quiz + hero; decorative PNG sticker modules removed')
+# Remove unused stickers/cutouts from deployment and repository. Keep real photos.
+import shutil
+for name in ('illustrations','illustrations-clean','apple-heart','gifts'):
+ folder=A/'images'/name
+ if folder.exists():shutil.rmtree(folder)
+for name in ('favicon.png','rosela-monogram.png','leaf-01.webp','leaf-02.webp','leaf-03.webp'):
+ target=A/'images'/name
+ if target.exists():target.unlink()
+for name in ('js/v16.js','v16.css'):
+ target=A/name
+ if target.exists():target.unlink()
+print('Site icon redesign: all decorative sticker assets removed, photos preserved')
+

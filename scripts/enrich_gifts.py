@@ -110,9 +110,9 @@ def cover(c,seq,theme,title,deck,icons,photo_index,accent):
  for t in title:
   color(c,INK);c.setFont("Times-Roman",48 if len(t)<23 else 43);c.drawString(45,y,t);y-=52
  para(c,deck,47,y-13,480,size=11.7,leading=19,tint=MUTED)
- photo(c,photo_index,45,302,505,229)
+ photo(c,photo_index,45,298,505,210)
  # hairline frame on photo
- stroke(c,"#ffffff");c.setLineWidth(2);c.roundRect(45,302,505,229,2,stroke=1,fill=0)
+ stroke(c,"#ffffff");c.setLineWidth(2);c.roundRect(45,298,505,210,2,stroke=1,fill=0)
  label(c,"EN ESTA GUÍA",47,267,8.4,True,accent)
  for i,(txt,k) in enumerate(icons):
   col=i%2;row=i//2
@@ -204,7 +204,7 @@ para(c,"Revisa lo que ya tienes y marca lo que necesitas. Deja espacio para suma
 for i,(title,kind) in enumerate([("VERDURAS Y FRUTAS","apple"),("PROTEÍNAS","fork"),("CEREALES Y LEGUMINOSAS","bowl"),("DESPENSA","bag")]):
  x=45+(i%2)*259;y=314-(i//2)*203
  color(c,"#ffffff");c.roundRect(x,y,245,188,13,fill=1,stroke=0);icon(c,kind,x+30,y+151,18,BRICK);label(c,title,x+55,y+145,9.1,True,INK);lines(c,x+20,y+113,205,4,26)
-callout(c,272,"UN PASO, NO UNA REGLA","Este planificador es un punto de partida. Adáptalo a tu vida y necesidades.",BRICK,"heart")
+label(c,"UN PASO, NO UNA REGLA  ·  Adapta la lista a tus necesidades.",45,94,9.0,True,BRICK)
 c.showPage();stats.append(finish(c,f,4))
 # 2) RECETARIO
 f=DEST/"RM_Regalo_Recetario.pdf";c=canvas.Canvas(str(f),pagesize=(W,H),pageCompression=1)
@@ -256,7 +256,7 @@ c.showPage()
 top_banner(c,4,"Diseña espacios para ti.","03 / MI AGENDA SEMANAL",BLUE)
 para(c,"Puedes llenar esta agenda con bloques pequeños y realistas. Un espacio de diez minutos también cuenta.",45,570,493,11,17,MUTED)
 table(c,45,511,505,["DÍA","MOVIMIENTO","PREPARAR COMIDA","DESCANSO"],[[d,"","",""] for d in ["Lunes","Martes","Miércoles","Jueves","Viernes","Sábado","Domingo"]],[95,125,160,125],rowheight=42)
-callout(c,146,"LO IMPORTANTE ES QUE TE QUEDE","Prueba una semana y ajusta. Ningún ritual tiene que ser perfecto para ser útil.",BLUE,"heart")
+label(c,"LO IMPORTANTE ES QUE TE QUEDE: prueba, evalúa y ajusta.",45,128,10,True,BLUE)
 c.showPage();stats.append(finish(c,f,4))
 # 4) RETO 7 DÍAS
 f=DEST/"RM_Regalo_Reto7Dias.pdf";c=canvas.Canvas(str(f),pagesize=(W,H),pageCompression=1)
@@ -283,9 +283,9 @@ para(c,"Mi peso: ______ kg × 35 = ______ ml / día (orientativo, no prescripci�
 for i,title in enumerate(["EL HÁBITO QUE QUIERO CONSERVAR","LO QUE MÁS ME COSTÓ","CÓMO ME SENTÍ"]):
  y=433-i*110
  label(c,title,46,y,10,True,GOLD);lines(c,46,y-25,495,3,22)
-color(c,SAGE);c.roundRect(45,96,505,62,12,stroke=0,fill=1)
-icon(c,"heart",75,129,20,GOLD)
-para(c,"Lo importante no es hacerlo perfecto, sino volver a intentarlo.",109,136,417,11,16,INK)
+color(c,SAGE);c.roundRect(45,84,505,52,12,stroke=0,fill=1)
+icon(c,"heart",75,109,20,GOLD)
+para(c,"Lo importante no es hacerlo perfecto, sino volver a intentarlo.",109,116,417,11,16,INK)
 c.showPage();stats.append(finish(c,f,4))
 # 5) BONUS COMER FUERA
 f=DEST/"RM_Bonus_ComerFuera.pdf";c=canvas.Canvas(str(f),pagesize=(W,H),pageCompression=1)
@@ -312,7 +312,7 @@ for i,(title,desc,key) in enumerate([
  color(c,"#ffffff" if i%2 else "#f0e8e2");c.roundRect(45,y,505,70,10,fill=1,stroke=0)
  icon(c,key,77,y+35,18,BRICK);label(c,title,109,y+45,10,True,BRICK)
  para(c,desc,109,y+27,417,9.6,13,INK,max_lines=2)
-callout(c,129,"HECHO PARA TU VIDA REAL","Este recurso es educativo. Para un tratamiento individualizado, consulta con tu nutrióloga.",BRICK,"heart")
+label(c,"HECHO PARA TU VIDA REAL · Una guía flexible, no una regla.",46,111,9.5,True,BRICK)
 c.showPage();stats.append(finish(c,f,3))
 # Quality manifest; verify every guide exists, has multiple images, and page-level extractable text.
 assert len(stats)==5
