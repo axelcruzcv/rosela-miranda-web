@@ -1,0 +1,73 @@
+/* Rosela — V9 hero correction: fixed CTA, readable type, real scroll-controlled apple. */
+.v3-first .rm-apple-heart {
+  position: absolute;
+  left: 65%;
+  bottom: 6px;
+  z-index: 6;
+  width: 110px;
+  height: 132px;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(246,241,233,.87), rgba(230,232,224,.57) 60%, transparent 73%);
+}
+.rm-apple-heart img {
+  display: block;
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  filter: none;
+}
+@media (min-width: 781px) {
+  /* The old hero scrolled its H1 downward and CTA upward, causing collisions.
+     Keep the H1/CTA in their own vertical zones; JS bounds H1 motion to 12px. */
+  body.v3-site .v3-first .v3-hero-head {
+    top: clamp(146px, 18svh, 205px);
+  }
+  body.v3-site .v3-first .v3-hero-bottom {
+    left: clamp(300px, 34.5vw, 620px);
+    bottom: clamp(118px, 17svh, 185px);
+    width: min(375px, 33vw);
+    max-width: none;
+    margin: 0;
+    padding: 15px 20px 18px;
+    background: linear-gradient(105deg,rgba(231,233,226,.92),rgba(231,233,226,.64));
+    border: 1px solid rgba(255,255,255,.46);
+    border-radius: 9px;
+    box-shadow: 0 16px 45px rgba(40,56,43,.05);
+    backdrop-filter: blur(2px);
+    transform: none;
+  }
+  body.v3-site .v3-first .v3-hero-bottom p {
+    font-size: clamp(13px, 1.05vw, 16px);
+    line-height: 1.51;
+    margin-bottom: 13px;
+  }
+}
+@media (min-width:781px) and (max-width:1020px) {
+  .v3-first .rm-apple-heart { left: 80%; }
+  body.v3-site .v3-first .v3-hero-bottom {
+    width: min(335px,35vw);
+    padding: 13px 17px 15px;
+    bottom: clamp(105px, 16svh, 150px);
+  }
+}
+@media (max-width: 780px) {
+  body.v3-site .v3-first .rm-apple-heart {
+    position: relative;
+    grid-column: 1;
+    grid-row: 4;
+    justify-self: center;
+    left: auto;
+    bottom: auto;
+    height: 88px;
+    width: 83px;
+    margin: -5px auto 3px;
+    z-index: 3;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .v3-first [data-parallax] { transform: none !important; }
+  .v3-first .v3-portrait img { transform: none !important; }
+}

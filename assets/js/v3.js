@@ -9,7 +9,7 @@ const hero = document.querySelector('.v3-first');
 const heroText = document.querySelector('[data-parallax="heading"]');
 const heroDescription = document.querySelector('[data-parallax="description"]');
 const photo = document.querySelector('.v3-portrait img');
-if (hero && heroText && heroDescription && photo && !reducedMotion.matches && window.matchMedia('(min-width: 781px)').matches) {
+if (hero && !hero.hasAttribute('data-motion-v9') && heroText && heroDescription && photo && !reducedMotion.matches && window.matchMedia('(min-width: 781px)').matches) {
   let ticking = false;
   const update = () => {
     const scroll = Math.min(Math.max(window.scrollY, 0), window.innerHeight * 1.2);
