@@ -18,22 +18,22 @@ const art = (key, cls='') => {
   return im;
 };
 const choiceScenes = [
-  ['prep-planner','recipes-foodbowl','rituals-alarm','challenge-calendar'],
-  ['prep-clock','recipes-soup','rituals-tea','challenge-heart'],
+  ['prep-planner','recipes-foodbowl','rituals-journal','challenge-calendar'],
+  ['prep-clock','recipes-soup','rituals-tea','challenge-trophy'],
   ['prep-clipboard','recipes-notebook','rituals-journal','challenge-seven'],
-  ['prep-containers','recipes-berries','rituals-yoga','challenge-trophy']
+  ['prep-containers','recipes-soup','rituals-yoga','challenge-trophy']
 ];
 const stepScenes = [
   ['prep-clock','prep-planner','prep-containers'],
-  ['recipes-berries','recipes-soup','recipes-lemon'],
-  ['rituals-alarm','rituals-tea','rituals-yoga'],
+  ['recipes-foodbowl','recipes-soup','recipes-notebook'],
+  ['prep-clock','rituals-tea','rituals-yoga'],
   ['challenge-medal','challenge-apple','challenge-trophy']
 ];
 const giftScenes = {
   plan: ['prep-mealbox','prep-planner','prep-containers'],
-  variety: ['recipes-foodbowl','recipes-lemon','recipes-berries'],
+  variety: ['recipes-foodbowl','recipes-soup','recipes-notebook'],
   rhythm: ['rituals-tea','rituals-yoga','rituals-journal'],
-  steady: ['challenge-apple','challenge-medal','challenge-heart']
+  steady: ['challenge-apple','challenge-medal','challenge-trophy']
 };
 function illustrations(){
   if(!screen || !counter) return;
@@ -48,6 +48,14 @@ function illustrations(){
       gallery.setAttribute('aria-hidden','true');
       files.forEach((key,i)=>gallery.append(art(key,'v16-reward-cutout v16-reward-cutout-'+i)));
       figure.append(gallery);
+    }
+    const bonus=screen.querySelector('.rm-bonus-strip');
+    if(bonus && !bonus.querySelector('.v16-bonus-visual')){
+      const bonusVisual=document.createElement('div');
+      bonusVisual.className='v16-bonus-visual';
+      bonusVisual.setAttribute('aria-hidden','true');
+      bonusVisual.append(art('outdoors-coffee','v16-bonus-cutout'));
+      bonus.append(bonusVisual);
     }
     return;
   }
@@ -87,7 +95,7 @@ if(screen && counter){
   illustrations();
 }
 // Nutrición clínica: illustrative visual cues, not medical diagrams.
-const specialtyArt=['rituals-heart','recipes-foodbowl','rewards-book','rituals-tea','rituals-sneakers','prep-clipboard'];
+const specialtyArt=['rewards-appleheart','recipes-foodbowl','rewards-book','rituals-tea','rituals-yoga','prep-clipboard'];
 document.querySelectorAll('.v10-specialty').forEach((card,i)=>{
   const span=card.querySelector('.v10-specialty-symbol');
   if(span && specialtyArt[i])span.replaceChildren(art(specialtyArt[i],'v16-specialty-cutout'));

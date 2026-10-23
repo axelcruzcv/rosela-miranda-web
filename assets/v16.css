@@ -78,3 +78,11 @@
  #rm-quiz-modal .v16-step-gallery img,
  .v16-specialty-cutout {transition:none!important}
 }
+/* Isolated extra: coffee cup cutout, distinct from the PDF thumb and copy. */
+#rm-quiz-modal .rm-bonus-strip {grid-template-columns:64px minmax(0,1fr) 80px;gap:13px}
+#rm-quiz-modal .v16-bonus-visual {display:grid;place-items:center;min-width:0;width:80px;height:84px}
+#rm-quiz-modal .v16-bonus-visual img {display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 5px 5px #392b2026)}
+@media(max-width:620px){
+ #rm-quiz-modal .rm-bonus-strip {grid-template-columns:48px minmax(0,1fr);gap:12px}
+ #rm-quiz-modal .v16-bonus-visual {display:none}
+}
