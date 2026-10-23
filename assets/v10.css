@@ -119,3 +119,18 @@ body.v3-site .v10-professional{overflow:hidden}
  #rm-quiz-modal .rm-gift-status{font-size:11px}
  #rm-quiz-modal .rm-choice{min-height:62px}
 }
+
+
+/* Protect headline and consultation card at laptop sizes as well as desktop. */
+@media(min-width:781px){
+ body.v3-site .v3-first .v3-hero-bottom{bottom:clamp(30px,6svh,70px)}
+}
+@media(min-width:781px) and (max-width:1150px){
+ body.v3-site .v3-first{min-height:700px;height:max(700px,86svh)}
+ body.v3-site .v3-first .v3-hero-bottom{left:52%;bottom:25px;max-width:350px;width:39%}
+ body.v3-site .v3-first .rm-apple-heart{left:12%;bottom:70px}
+}
+@media(min-width:781px) and (max-height:750px){
+ body.v3-site .v3-first{min-height:690px}
+ body.v3-site .v3-first .v3-hero-bottom{bottom:26px}
+}
