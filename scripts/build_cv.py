@@ -78,5 +78,5 @@ for lang,d in DATA.items():
  doc=fitz.open(output)
  assert len(doc)==1
  page=doc[0];assert len(page.get_text())>450
- assert all(w[3]<=595 for w in page.get_text("words")),output.name
+ assert all(w[2]<=595 and w[0]>=0 and w[1]>=0 and w[3]<=842 for w in page.get_text("words")),output.name
  print("CV",lang,output.name,output.stat().st_size,"bytes",len(page.get_text()),"chars")
