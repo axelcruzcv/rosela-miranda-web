@@ -201,7 +201,7 @@ function renderGift(){
   const bonusCopy=document.createElement('div');
   const bonusLabel=document.createElement('strong');bonusLabel.textContent='Y además, un bonus para ti.';
   const bonusText=document.createElement('p');bonusText.textContent='Comer saludable fuera de casa: una guía práctica para llevar contigo.';
-  const bonusLink=document.createElement('a');bonusLink.className='rm-bonus-link';bonusLink.textContent='Descargar bonus PDF ↗';bonusLink.href=new URL('../gifts/'+bonusFile,import.meta.url).href;bonusLink.download=bonusFile;
+  const bonusLink=document.createElement('a');bonusLink.className='rm-bonus-link';bonusLink.textContent='Descargar bonus PDF ↗';bonusLink.href=new URL('../gifts/'+bonusFile,import.meta.url).href+'?v=20261027-mexicano';bonusLink.download=bonusFile;
   bonusCopy.append(bonusLabel,bonusText,bonusLink);bonus.append(bonusThumb,bonusCopy);
   controls.append(again,contact);screen.append(eyebrow,heading,welcome,wrap,bonus,note,controls);
   focusQuizHeading();
