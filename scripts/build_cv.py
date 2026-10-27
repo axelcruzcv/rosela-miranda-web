@@ -6,6 +6,7 @@ from pathlib import Path
 from reportlab.pdfgen.canvas import Canvas
 from reportlab.lib.colors import HexColor
 from reportlab.lib.utils import simpleSplit
+from reportlab.pdfbase.pdfmetrics import stringWidth
 import fitz
 ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/"assets/cv";OUT.mkdir(parents=True,exist_ok=True)
@@ -33,6 +34,10 @@ DATA={
 }}
 INK=HexColor("#34473d");ACC=HexColor("#a57668");SAGE=HexColor("#e7ebe2");GREY=HexColor("#657567")
 def text(c,x,y,s,size=11,font="Helvetica",col=INK):
+ # Fit long headings safely inside the page instead of exporting clipped text.
+ max_width=W-x-48
+ natural=stringWidth(s,font,size)
+ size=min(size, size*max_width/max(natural,1))
  c.setFont(font,size);c.setFillColor(col);c.drawString(x,y,s)
 def wrapped(c,x,y,s,width,size=10,lead=15,font="Helvetica",col=INK):
  lines=simpleSplit(s,font,size,width)
