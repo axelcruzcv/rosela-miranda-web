@@ -225,3 +225,20 @@
  .v10-professional .v10-training-content h2{font-size:clamp(43px,10vw,59px)}
  .v10-cv .v3-resume-buttons>a{padding:16px 20px;min-height:70px;font-size:13px}
 }
+
+/* V1.1 responsive illustration: GIF replaces the desktop sidebar on phones. */
+#rm-quiz-modal .rm-v18-gif-mobile {display:none}
+@media(max-width:780px){
+ #rm-quiz-modal .rm-v18-gif-mobile {
+  display:block;width:76px;height:76px;object-fit:contain;
+  border-radius:19px;border:1px solid #d9e2d7;
+  padding:3px;margin:10px 0 12px;background:#d7ded3;
+ }
+ #rm-quiz-modal .rm-v18-gif-mobile[data-question="variety"]{background:#4e6691;border-color:#7b92b7}
+ #rm-quiz-modal .rm-v18-gif-mobile[data-question="rhythm"]{background:#7b4a53;border-color:#ac7b83}
+ #rm-quiz-modal .rm-v18-gif-mobile[data-question="steady"]{background:#25362f;border-color:#607868}
+ #rm-quiz-modal .rm-v18-gif-mobile[hidden]{display:none!important}
+}
+@media(max-width:560px){
+ #rm-quiz-modal .rm-v18-gif-mobile{height:65px;width:65px;border-radius:16px;margin:7px 0 11px}
+}

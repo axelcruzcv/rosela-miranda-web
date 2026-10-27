@@ -42,6 +42,12 @@ const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
   seal.setAttribute('aria-hidden','true');
   seal.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21C8 17 3 13 3 8a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 5-5 9-9 13Z"/><path d="M8 12h8M12 8v8"/></svg>';
   aside.prepend(pic,seal);
+  // On phones the left panel collapses: retain a compact animated preview.
+  const mobile=document.createElement('img');
+  mobile.className='rm-v18-gif-mobile';
+  mobile.alt='';mobile.setAttribute('aria-hidden','true');
+  mobile.decoding='async';mobile.loading='eager';mobile.width=320;mobile.height=320;
+  overlay.querySelector('.rm-modal-progress')?.after(mobile);
   const sequence=['plan','variety','rhythm','steady'];
   let visibleName='',visibleFormat='';
   const show=()=>{
@@ -53,9 +59,12 @@ const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
    if(visibleName!==name || visibleFormat!==format){
     visibleName=name;visibleFormat=format;
     const filename=name+(format==='webp'?'-still.webp':'.gif');
-    pic.src=new URL('../images/quiz-gifs/'+filename,import.meta.url).href;
+    const source=new URL('../images/quiz-gifs/'+filename,import.meta.url).href;
+    pic.src=source;mobile.src=source;
    }
+   mobile.dataset.question=name;
    pic.hidden=position===4;
+   mobile.hidden=position===4;
   };
   new MutationObserver(show).observe(counter,{childList:true,subtree:true,characterData:true});
   reduced.addEventListener?.('change',show);
