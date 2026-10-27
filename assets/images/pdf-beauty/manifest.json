@@ -1,0 +1,323 @@
+{
+  "edition": "20261027_V1.2",
+  "license": "Unsplash License (free photographs)",
+  "photos": [
+    {
+      "key": "meal_cover",
+      "path": "assets/images/pdf-beauty/meal_cover.jpg",
+      "credit": "Ella Olsson",
+      "topic": "Meal prep en recipientes de cristal",
+      "page": "Meal Prep, portada",
+      "source": "https://images.unsplash.com/photo-1543352632-5a4b24e4d2a6",
+      "unsplash_photo_id": "photo-1543352632-5a4b24e4d2a6",
+      "dimensions": [
+        1450,
+        1160
+      ],
+      "sha256": "829bdd02510c274b484a8b2b0d995045fcbd8452ca448e48c065e2bb0f0e0a69",
+      "bytes": 501916
+    },
+    {
+      "key": "meal_prep",
+      "path": "assets/images/pdf-beauty/meal_prep.jpg",
+      "credit": "Anna Bratiychuk",
+      "topic": "Verduras frescas en preparación",
+      "page": "Meal Prep, preparación",
+      "source": "https://images.unsplash.com/photo-1685188445506-c8a030ba5fad",
+      "unsplash_photo_id": "photo-1685188445506-c8a030ba5fad",
+      "dimensions": [
+        1033,
+        1550
+      ],
+      "sha256": "a568f16b995cfc4e5a5575d348a05e7beed7bae71541b9339634cabde0be6157",
+      "bytes": 174991
+    },
+    {
+      "key": "meal_week",
+      "path": "assets/images/pdf-beauty/meal_week.jpg",
+      "credit": "Alehandra",
+      "topic": "Planeación escrita en libreta",
+      "page": "Meal Prep, planificador semanal",
+      "source": "https://images.unsplash.com/photo-1774354669545-6265156237d4",
+      "unsplash_photo_id": "photo-1774354669545-6265156237d4",
+      "dimensions": [
+        1450,
+        967
+      ],
+      "sha256": "02b81b4e81d1b96c33eea02d3eac867a5016fc3eea044b52d3e57e954179d634",
+      "bytes": 252679
+    },
+    {
+      "key": "meal_shopping",
+      "path": "assets/images/pdf-beauty/meal_shopping.jpg",
+      "credit": "Rudrendu Sharma",
+      "topic": "Verduras frescas para la lista de compras",
+      "page": "Meal Prep, compras",
+      "source": "https://images.unsplash.com/photo-1775677073681-194049b1a7d3",
+      "unsplash_photo_id": "photo-1775677073681-194049b1a7d3",
+      "dimensions": [
+        1163,
+        1550
+      ],
+      "sha256": "db80f3b01649908433b96d0687dfcd62d6a95d5ffda7f66c981f3b5d91467c03",
+      "bytes": 796016
+    },
+    {
+      "key": "recipe_cover",
+      "path": "assets/images/pdf-beauty/recipe_cover.jpg",
+      "credit": "Joe Boshra",
+      "topic": "Bowl completo con pollo, arroz y vegetales",
+      "page": "Recetario, portada",
+      "source": "https://images.unsplash.com/photo-1762631383378-115f2d4cbe07",
+      "unsplash_photo_id": "photo-1762631383378-115f2d4cbe07",
+      "dimensions": [
+        1163,
+        1550
+      ],
+      "sha256": "9611e4479108764864fc3ef5b73922e2516024c2a0ab22fd305eb5b84b8fa2bd",
+      "bytes": 332053
+    },
+    {
+      "key": "recipe_breakfast",
+      "path": "assets/images/pdf-beauty/recipe_breakfast.jpg",
+      "credit": "Alex Bayev",
+      "topic": "Avena con fruta y nueces",
+      "page": "Recetario, desayunos",
+      "source": "https://images.unsplash.com/photo-1682622110332-d50f50b7146d",
+      "unsplash_photo_id": "photo-1682622110332-d50f50b7146d",
+      "dimensions": [
+        1033,
+        1550
+      ],
+      "sha256": "f2e6ed7e5a47bfa8b92620eab2fab3936f75f1e34db62b0117fc30e0accc551a",
+      "bytes": 181815
+    },
+    {
+      "key": "recipe_lunch",
+      "path": "assets/images/pdf-beauty/recipe_lunch.jpg",
+      "credit": "alexanderafan",
+      "topic": "Salmón acompañado de verduras",
+      "page": "Recetario, comidas",
+      "source": "https://images.unsplash.com/photo-1746728789487-ddf8f3d19447",
+      "unsplash_photo_id": "photo-1746728789487-ddf8f3d19447",
+      "dimensions": [
+        1033,
+        1550
+      ],
+      "sha256": "cbab5880e0238f663101c113a64c66a85301f5f1878f2915db9c48066e92cdc2",
+      "bytes": 343961
+    },
+    {
+      "key": "recipe_dinner",
+      "path": "assets/images/pdf-beauty/recipe_dinner.jpg",
+      "credit": "Dipesh Gurav",
+      "topic": "Sopa de verduras en bowl",
+      "page": "Recetario, cenas",
+      "source": "https://images.unsplash.com/photo-1559561723-c3f4195835db",
+      "unsplash_photo_id": "photo-1559561723-c3f4195835db",
+      "dimensions": [
+        1450,
+        967
+      ],
+      "sha256": "e8b2b432938e9cfacb57d68892ef8921bd8a664c76b2a31bc8274cf639c30daa",
+      "bytes": 266321
+    },
+    {
+      "key": "recipe_snacks",
+      "path": "assets/images/pdf-beauty/recipe_snacks.jpg",
+      "credit": "Serghey Savchuk",
+      "topic": "Yogur natural con arándanos",
+      "page": "Recetario, colaciones",
+      "source": "https://images.unsplash.com/photo-1753173301491-d4b738062a82",
+      "unsplash_photo_id": "photo-1753173301491-d4b738062a82",
+      "dimensions": [
+        1450,
+        967
+      ],
+      "sha256": "6cd81ddab5b38332a8acad07632d7ccf1176ba1c2d84c87c3651dad9a3d78629",
+      "bytes": 313126
+    },
+    {
+      "key": "recipe_variety",
+      "path": "assets/images/pdf-beauty/recipe_variety.jpg",
+      "credit": "Diego Mejía",
+      "topic": "Diversidad de frutas y verduras frescas",
+      "page": "Recetario, reto de variedad",
+      "source": "https://images.unsplash.com/photo-1770782912836-82b4d67444d5",
+      "unsplash_photo_id": "photo-1770782912836-82b4d67444d5",
+      "dimensions": [
+        910,
+        1550
+      ],
+      "sha256": "36d7c483942ddddd919b6322cda7932d4ccb420074419a16d486e04d3f8678bf",
+      "bytes": 408542
+    },
+    {
+      "key": "ritual_cover",
+      "path": "assets/images/pdf-beauty/ritual_cover.jpg",
+      "credit": "Swarnim Doegar",
+      "topic": "Infusión herbal con menta",
+      "page": "Rituales, portada",
+      "source": "https://images.unsplash.com/photo-1773479089546-49ff98325518",
+      "unsplash_photo_id": "photo-1773479089546-49ff98325518",
+      "dimensions": [
+        1034,
+        1550
+      ],
+      "sha256": "f3ffa1745563d74c58332ffd68acbcc55f4d0cf6b1b36a58f3f172726dedae11",
+      "bytes": 165175
+    },
+    {
+      "key": "ritual_day",
+      "path": "assets/images/pdf-beauty/ritual_day.jpg",
+      "credit": "Tino Rischawy",
+      "topic": "Caminata al amanecer",
+      "page": "Rituales, movimiento",
+      "source": "https://images.unsplash.com/photo-1680330386247-b3a9de0f8bd9",
+      "unsplash_photo_id": "photo-1680330386247-b3a9de0f8bd9",
+      "dimensions": [
+        1450,
+        967
+      ],
+      "sha256": "4f856becfb86a1b0e0a8815138f0fcb589a3e3a7708f1d6c535e84ef70a93c90",
+      "bytes": 152995
+    },
+    {
+      "key": "ritual_meals",
+      "path": "assets/images/pdf-beauty/ritual_meals.jpg",
+      "credit": "Douglas Fehr",
+      "topic": "Preparación de alimentos en casa",
+      "page": "Rituales, comidas y descanso",
+      "source": "https://images.unsplash.com/photo-1636647511729-6703539ba71f",
+      "unsplash_photo_id": "photo-1636647511729-6703539ba71f",
+      "dimensions": [
+        1450,
+        967
+      ],
+      "sha256": "8613556b11bde96afd92ae6c229c75a90ca51087ad5c4cb16ef98491096f2f5f",
+      "bytes": 202793
+    },
+    {
+      "key": "ritual_agenda",
+      "path": "assets/images/pdf-beauty/ritual_agenda.jpg",
+      "credit": "Ngo Ngoc Khai Huyen",
+      "topic": "Agenda y libreta con lápiz",
+      "page": "Rituales, agenda semanal",
+      "source": "https://images.unsplash.com/photo-1711030239030-5f1eb868c907",
+      "unsplash_photo_id": "photo-1711030239030-5f1eb868c907",
+      "dimensions": [
+        1450,
+        1088
+      ],
+      "sha256": "913e3313e2f6cb5e85564397a1bb1bc0c5fca32724dcf2418338ef7353edbc3b",
+      "bytes": 309190
+    },
+    {
+      "key": "challenge_cover",
+      "path": "assets/images/pdf-beauty/challenge_cover.jpg",
+      "credit": "Andrea Stuart",
+      "topic": "Tapete y mancuernas para movimiento",
+      "page": "Reto siete días, portada",
+      "source": "https://images.unsplash.com/photo-1746796751590-a8c0f15d4900",
+      "unsplash_photo_id": "photo-1746796751590-a8c0f15d4900",
+      "dimensions": [
+        1450,
+        1088
+      ],
+      "sha256": "025d2388f2d067aeaff8883d9a2caa59344396334d2ea270b3e66538879a30be",
+      "bytes": 455263
+    },
+    {
+      "key": "challenge_first",
+      "path": "assets/images/pdf-beauty/challenge_first.jpg",
+      "credit": "Margaret Young",
+      "topic": "Estiramiento y actividad física",
+      "page": "Reto siete días, días 1–4",
+      "source": "https://images.unsplash.com/photo-1767611094260-1f5565e6d815",
+      "unsplash_photo_id": "photo-1767611094260-1f5565e6d815",
+      "dimensions": [
+        1450,
+        967
+      ],
+      "sha256": "3fd0f011fb604c48f058bb075f5b03b3391aede1b219723d09ea8e622011a6c4",
+      "bytes": 136030
+    },
+    {
+      "key": "challenge_second",
+      "path": "assets/images/pdf-beauty/challenge_second.jpg",
+      "credit": "Angelina Sarycheva",
+      "topic": "Respiración consciente",
+      "page": "Reto siete días, días 5–7",
+      "source": "https://images.unsplash.com/photo-1716284130499-470a2d2b200e",
+      "unsplash_photo_id": "photo-1716284130499-470a2d2b200e",
+      "dimensions": [
+        1450,
+        816
+      ],
+      "sha256": "5780f4b03352b01890d867bab9e02cfdf3f87ae7b634bd790dc51ff3249a70ae",
+      "bytes": 197586
+    },
+    {
+      "key": "challenge_reflection",
+      "path": "assets/images/pdf-beauty/challenge_reflection.jpg",
+      "credit": "Keila Hötzel",
+      "topic": "Libreta y flores para reflexión",
+      "page": "Reto siete días, registro",
+      "source": "https://images.unsplash.com/photo-1752567068743-d17a7b33b74e",
+      "unsplash_photo_id": "photo-1752567068743-d17a7b33b74e",
+      "dimensions": [
+        1033,
+        1550
+      ],
+      "sha256": "ecc1658d9c664999b0c62278bf09ec4c224277ca67e6f3a9e39d488205bfaae0",
+      "bytes": 222988
+    },
+    {
+      "key": "bonus_cover",
+      "path": "assets/images/pdf-beauty/bonus_cover.jpg",
+      "credit": "Brelyn Bashrum",
+      "topic": "Mesa compartida con comida italiana",
+      "page": "Comer fuera, portada",
+      "source": "https://images.unsplash.com/photo-1770678724766-08268bbc61e2",
+      "unsplash_photo_id": "photo-1770678724766-08268bbc61e2",
+      "dimensions": [
+        1450,
+        967
+      ],
+      "sha256": "74344ae9754689c7ca304f583982333e61eea2bde7ed22b9a173eb09c1647877",
+      "bytes": 364971
+    },
+    {
+      "key": "bonus_tips",
+      "path": "assets/images/pdf-beauty/bonus_tips.jpg",
+      "credit": "alexanderafan",
+      "topic": "Plato servido con salmón y vegetales",
+      "page": "Comer fuera, seis consejos",
+      "source": "https://images.unsplash.com/photo-1746783840967-738ea85b0f25",
+      "unsplash_photo_id": "photo-1746783840967-738ea85b0f25",
+      "dimensions": [
+        1033,
+        1550
+      ],
+      "sha256": "2a9a87fc9c330ace9e35fb3ffbb9f1c07e693b8d43334a23a6df753e7bb5b122",
+      "bytes": 260215
+    },
+    {
+      "key": "bonus_venues",
+      "path": "assets/images/pdf-beauty/bonus_venues.jpg",
+      "credit": "Tai's Captures",
+      "topic": "Tacos mexicanos servidos",
+      "page": "Comer fuera, restaurantes",
+      "source": "https://images.unsplash.com/photo-1613409385222-3d0decb6742a",
+      "unsplash_photo_id": "photo-1613409385222-3d0decb6742a",
+      "dimensions": [
+        1450,
+        967
+      ],
+      "sha256": "1bc56bf42b1ee6ce520933456dc84c63e5a74e8113d4c4de81cef91ec9322938",
+      "bytes": 248967
+    }
+  ],
+  "unique_assets": 21,
+  "repeated_assets": 0
+}

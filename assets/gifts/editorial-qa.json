@@ -1,41 +1,41 @@
 {
-  "version": "editorial-v2",
-  "visuals": "repository photographs and PDF-native vector icons",
+  "version": "editorial-v3",
+  "visuals": "21 curated subject-specific unique beauty shots plus PDF-native vector icons",
   "guides": [
     {
       "file": "RM_Regalo_MealPrep.pdf",
       "pages": 4,
-      "size": 223199,
+      "size": 568367,
       "images": 4,
-      "text_characters": 1874
+      "text_characters": 2004
     },
     {
       "file": "RM_Regalo_Recetario.pdf",
       "pages": 6,
-      "size": 274906,
+      "size": 549902,
       "images": 6,
-      "text_characters": 3122
+      "text_characters": 3313
     },
     {
       "file": "RM_Regalo_Rituales.pdf",
       "pages": 4,
-      "size": 199598,
+      "size": 300893,
       "images": 4,
-      "text_characters": 1829
+      "text_characters": 1967
     },
     {
       "file": "RM_Regalo_Reto7Dias.pdf",
       "pages": 4,
-      "size": 231161,
+      "size": 388770,
       "images": 4,
-      "text_characters": 1760
+      "text_characters": 1897
     },
     {
       "file": "RM_Bonus_ComerFuera.pdf",
       "pages": 3,
-      "size": 146046,
+      "size": 345362,
       "images": 3,
-      "text_characters": 1539
+      "text_characters": 1640
     }
   ]
 }
