@@ -93,12 +93,18 @@ def generate(name, colors):
   indexed=img.quantize(palette=pal,dither=Image.Dither.NONE)
   frames.append(indexed)
  gif=OUT/(name+".gif")
+ # Transparent GIF: background index 0 disappears; only chromatic line artwork remains.
  frames[0].save(gif,save_all=True,append_images=frames[1:],optimize=False,
-                duration=85,loop=0,disposal=2)
- static=OUT/(name+"-still.webp")
- Image.merge("RGB",Image.new("RGB",(S,S),bg).split()).save(static) if False else img.save(static,format="WEBP",quality=92)
- # overwrite still with first frame RGB, never the final animation frame
- frames[0].convert("RGB").save(static,format="WEBP",quality=92)
+                duration=85,loop=0,disposal=2,transparency=0)
+ still=frames[0].convert("RGBA")
+ px=still.load()
+ for yy in range(S):
+  for xx in range(S):
+   if frames[0].getpixel((xx,yy))==0: px[xx,yy]=(0,0,0,0)
+ still.save(OUT/(name+"-still.webp"),format="WEBP",quality=92,method=5)
+ probe=Image.open(gif)
+ assert probe.info.get("transparency")==0 and probe.n_frames==32
+ assert Image.open(OUT/(name+"-still.webp")).convert("RGBA").getpixel((0,0))[3]==0
  print(name,"GIF",gif.stat().st_size,"bytes","frames",len(frames),"tones",len(set(frames[0].getdata())))
 if __name__=="__main__":
  for n,c in themes.items():generate(n,c)

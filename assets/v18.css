@@ -242,3 +242,34 @@
 @media(max-width:560px){
  #rm-quiz-modal .rm-v18-gif-mobile{height:65px;width:65px;border-radius:16px;margin:7px 0 11px}
 }
+
+/* 20261027_V1.2: transparent illustration / backdrop always from same panel */
+#rm-quiz-modal .rm-modal-aside{transition:none!important}
+#rm-quiz-modal .rm-v19-artboard{position:relative;width:min(95%,320px);aspect-ratio:1;z-index:2}
+#rm-quiz-modal .rm-v19-glyph{position:absolute;inset:0;display:none!important;width:100%;height:100%;object-fit:contain;opacity:1!important;filter:none!important;transform:none!important;background:transparent!important}
+#rm-quiz-modal[data-active-question="plan"] .rm-v19-glyph[data-question="plan"],
+#rm-quiz-modal[data-active-question="variety"] .rm-v19-glyph[data-question="variety"],
+#rm-quiz-modal[data-active-question="rhythm"] .rm-v19-glyph[data-question="rhythm"],
+#rm-quiz-modal[data-active-question="steady"] .rm-v19-glyph[data-question="steady"]{display:block!important}
+#rm-quiz-modal .rm-v19-artboard[hidden],#rm-quiz-modal .rm-v19-mobile-artboard[hidden]{display:none!important}
+#rm-quiz-modal .rm-v19-result-emblem{display:none;position:absolute;width:160px;height:160px;color:#eaf2e7}
+#rm-quiz-modal .rm-v19-result-emblem svg{width:100%;height:100%}
+#rm-quiz-modal[data-active-question="result"] .rm-v19-result-emblem{display:block}
+#rm-quiz-modal .rm-v19-mobile-artboard{display:none}
+/* Education: copy left, university photo right; previous portrait section photo remains left */
+.v10-professional .v10-training{grid-template-columns:minmax(0,.56fr) minmax(0,.44fr)}
+.v10-professional .v10-training-content{grid-column:1;grid-row:1}
+.v10-professional .v10-training-photo{grid-column:2;grid-row:1;order:2}
+@media(max-width:780px){
+ .v10-professional .v10-training{grid-template-columns:minmax(0,.62fr) minmax(0,.38fr)}
+ .v10-professional .v10-training-content{grid-column:1;grid-row:1;order:0}
+ .v10-professional .v10-training-photo{grid-column:2;grid-row:1;order:1}
+ #rm-quiz-modal .rm-v19-mobile-artboard{position:relative;display:block;width:78px;height:78px;border-radius:17px;margin:10px 0 14px}
+ #rm-quiz-modal .rm-v18-gif-mobile{display:none!important}
+}
+@media(max-width:560px){
+ .v10-professional .v10-training{display:flex;flex-direction:column}
+ .v10-professional .v10-training-content{order:0}
+ .v10-professional .v10-training-photo{order:1;height:160px;max-height:160px}
+ #rm-quiz-modal .rm-v19-mobile-artboard{width:67px;height:67px;margin:6px 0 11px}
+}

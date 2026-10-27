@@ -29,45 +29,42 @@ const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
   update();
  }
 }
+/* Four transparent GIFs are preloaded once; switching questions is synchronous.
+   No colored squares are drawn into the GIF itself. */
 {
  const overlay=document.getElementById('rm-quiz-modal');
  const aside=overlay?.querySelector('.rm-modal-aside');
  const counter=overlay?.querySelector('#rm-quiz-counter');
- if(overlay && aside && counter){
-  const pic=document.createElement('img');
-  pic.className='rm-v18-gif';pic.alt='';pic.setAttribute('aria-hidden','true');
-  pic.decoding='async';pic.loading='eager';pic.width=320;pic.height=320;
-  const seal=document.createElement('span');
-  seal.className='rm-v18-result-mark';
-  seal.setAttribute('aria-hidden','true');
-  seal.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21C8 17 3 13 3 8a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 5-5 9-9 13Z"/><path d="M8 12h8M12 8v8"/></svg>';
-  aside.prepend(pic,seal);
-  // On phones the left panel collapses: retain a compact animated preview.
-  const mobile=document.createElement('img');
-  mobile.className='rm-v18-gif-mobile';
-  mobile.alt='';mobile.setAttribute('aria-hidden','true');
-  mobile.decoding='async';mobile.loading='eager';mobile.width=320;mobile.height=320;
-  overlay.querySelector('.rm-modal-progress')?.after(mobile);
-  const sequence=['plan','variety','rhythm','steady'];
-  let visibleName='',visibleFormat='';
-  const show=()=>{
-   const raw=counter.textContent.trim();
-   const position=raw==='TU DETALLE'?4:
-    Math.max(0,Math.min(3,(Number.parseInt(raw,10)||1)-1));
-   const name=sequence[Math.min(3,position)];
-   const format=reduced.matches?'webp':'gif';
-   if(visibleName!==name || visibleFormat!==format){
-    visibleName=name;visibleFormat=format;
-    const filename=name+(format==='webp'?'-still.webp':'.gif');
-    const source=new URL('../images/quiz-gifs/'+filename,import.meta.url).href;
-    pic.src=source;mobile.src=source;
-   }
-   mobile.dataset.question=name;
-   pic.hidden=position===4;
-   mobile.hidden=position===4;
+ const progress=overlay?.querySelector('.rm-modal-progress');
+ if(overlay&&aside&&counter){
+  const names=['plan','variety','rhythm','steady'];
+  const createImage=(name)=>{
+   const pic=document.createElement('img');
+   pic.className='rm-v19-glyph';pic.dataset.question=name;pic.alt='';
+   pic.setAttribute('aria-hidden','true');pic.decoding='async';
+   pic.width=320;pic.height=320;pic.loading='eager';
+   pic.src=new URL('../images/quiz-gifs/'+name+(reduced.matches?'-still.webp':'.gif'),import.meta.url).href;
+   return pic;
   };
+  const side=document.createElement('div');side.className='rm-v19-artboard';
+  const small=document.createElement('div');small.className='rm-v19-mobile-artboard';
+  for(const name of names){side.append(createImage(name));small.append(createImage(name));}
+  aside.prepend(side);progress?.after(small);
+  const result=document.createElement('div');result.className='rm-v19-result-emblem';
+  result.setAttribute('aria-hidden','true');
+  result.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 21C8 17 3 13 3 8a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 5-5 9-9 13Z"/><path d="M8 12h8M12 8v8"/></svg>';
+  aside.append(result);
+  function show(){
+   const raw=counter.textContent.trim(),index=(parseInt(raw,10)||1)-1;
+   const active=raw==='TU DETALLE'?'result':names[Math.min(3,Math.max(0,index))];
+   overlay.dataset.activeQuestion=active;
+   side.hidden=small.hidden=active==='result';
+  }
   new MutationObserver(show).observe(counter,{childList:true,subtree:true,characterData:true});
-  reduced.addEventListener?.('change',show);
+  reduced.addEventListener?.('change',()=>{
+   for(const im of [...side.querySelectorAll('img'),...small.querySelectorAll('img')])
+    im.src=new URL('../images/quiz-gifs/'+im.dataset.question+(reduced.matches?'-still.webp':'.gif'),import.meta.url).href;
+  });
   show();
  }
 }
