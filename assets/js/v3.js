@@ -36,7 +36,7 @@ if (quizModal && quizCounter) {
     let step = val === 'TU DETALLE' ? '4' : String(Math.max(0, (parseInt(val,10) || 1) - 1));
     quizModal.dataset.step = step;
     const symbol = quizModal.querySelector('.rm-modal-aside>span');
-    if(symbol) symbol.textContent = step === '4' ? 'UN REGALO PARA TI · RM' : 'UNA PREGUNTA A LA VEZ · RM';
+    if(symbol) symbol.textContent = step === '4' ? 'UN REGALO PARA TI · RM' : '';
   };
   new MutationObserver(recolor).observe(quizCounter, {childList:true,characterData:true,subtree:true});
   recolor();
