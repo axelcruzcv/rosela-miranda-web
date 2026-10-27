@@ -110,12 +110,12 @@ def photo(c,key,x,y,w,h):
   # Gentle editorial treatment, no artificial compositing.
   blob=BytesIO();im.save(blob,format="JPEG",quality=86,optimize=True);blob.seek(0)
   c.drawImage(ImageReader(blob),x,y,w,h,mask="auto")
- # Subtle source credit outside image edge, with meaningful topic validation.
- color(c,"#465347");c.setFillColor(HexColor("#ffffff"))
- c.roundRect(x+w-198,y+4,192,15,3,fill=1,stroke=0)
+ # Custom Mexican-dish shot keeps the plate fully unobstructed.
  if key=="bonus_venues":
-  label(c,"IMAGEN ILUSTRATIVA · ROSELA MIRANDA",x+w-194,y+8,6.5,False,MUTED)
+  label(c,"IMAGEN ILUSTRATIVA · ROSELA MIRANDA",x+w-178,y-10,6.5,False,MUTED)
  else:
+  color(c,"#465347");c.setFillColor(HexColor("#ffffff"))
+  c.roundRect(x+w-198,y+4,192,15,3,fill=1,stroke=0)
   label(c,"PHOTO · "+info["credit"]+" / UNSPLASH",x+w-194,y+8,6.5,False,MUTED)
 
 def page(c,num,section,accent=INK,disclaimer=True):
