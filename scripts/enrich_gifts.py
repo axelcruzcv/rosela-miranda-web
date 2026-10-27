@@ -17,16 +17,32 @@ DEST=ROOT/"assets"/"gifts"
 PHOTOS=ROOT/"assets"/"images"/"blog"
 W,H=595.28,841.89
 INK="#374d40"; MUTED="#6e7c70"; PAPER="#f7f4ed"; SAGE="#e7ece4"; BRICK="#aa7769"; WINE="#80525a"; BLUE="#526d89"; GOLD="#a38661"; DARK="#394d40"
-IMAGE_FILES=[
- "brooke-lark-nBtmglfY0HU-unsplash.jpg",
- "jason-briscoe-GrdJp16CPk8-unsplash.jpg",
- "pablo-merchan-montes-Orz90t6o0e4-unsplash.jpg",
- "brooke-lark-nTZOILVZuOg-unsplash.jpg",
- "roxana-popovici-aY5uOJ2o96g-unsplash.jpg",
- "roberto-nickson-im-WHBypB0w-unsplash.jpg",
- "ivan-zakharenko-KeGKEOjhy6E-unsplash.jpg",
- "artem-kovalev-fk3XUcfTAvk-unsplash.jpg",
-]
+# Curated page-by-page photography: every PDF page uses a distinct beauty shot.
+COVERS={"01":"meal_cover","02":"recipe_cover","03":"ritual_cover","04":"challenge_cover","05":"bonus_cover"}
+SECTIONS={
+ "01 / TU HORA DE PREPARACIÓN":"meal_prep",
+ "02 / MI PLANIFICADOR":"meal_week",
+ "03 / LISTA DE COMPRAS":"meal_shopping",
+ "01 / DESAYUNOS":"recipe_breakfast",
+ "02 / COMIDAS":"recipe_lunch",
+ "03 / CENAS":"recipe_dinner",
+ "04 / COLACIONES":"recipe_snacks",
+ "05 / IDEAS PARA TU SEMANA":"recipe_variety",
+ "01 / BLOQUES COTIDIANOS":"ritual_day",
+ "02 / COMIDA Y DESCANSO":"ritual_meals",
+ "03 / MI AGENDA SEMANAL":"ritual_agenda",
+ "01 / DÍAS 1 A 4":"challenge_first",
+ "02 / DÍAS 5 A 7":"challenge_second",
+ "03 / MI REGISTRO PERSONAL":"challenge_reflection",
+ "01 / DECISIONES COTIDIANAS":"bonus_tips",
+ "02 / OPCIONES PARA ELEGIR":"bonus_venues"
+}
+assert len(COVERS)+len(SECTIONS)==21
+BEAUTY=ROOT/"assets"/"images"/"pdf-beauty"
+MANIFEST=json.loads((BEAUTY/"manifest.json").read_text(encoding="utf-8"))
+PHOTO_DETAILS={r["key"]:r for r in MANIFEST["photos"]}
+USED=set()
+
 def color(c,s): c.setFillColor(HexColor(s))
 def stroke(c,s): c.setStrokeColor(HexColor(s))
 def label(c,s,x,y,size=10,bold=False,tint=INK):
@@ -82,14 +98,23 @@ def chip(c,txt,x,y,kind,accent=INK,r=20):
  color(c,"#edf1e9");c.circle(x+r,y+r,r,fill=1,stroke=0)
  icon(c,kind,x+r,y+r,17,accent)
  label(c,txt,x+2*r+12,y+r-4,10,False,INK)
-def photo(c,imgnum,x,y,w,h):
- files=[PHOTOS/f for f in IMAGE_FILES]
- target=next((files[(imgnum+i)%len(files)] for i in range(len(files)) if files[(imgnum+i)%len(files)].exists()),None)
- if not target:return
+def photo(c,key,x,y,w,h):
+ if key not in PHOTO_DETAILS:raise ValueError("No curated photograph for "+str(key))
+ if key in USED:raise RuntimeError("Photograph used twice: "+key)
+ USED.add(key)
+ info=PHOTO_DETAILS[key]
+ target=ROOT/info["path"]
+ if not target.is_file():raise FileNotFoundError("Missing beauty photo "+str(target))
  with Image.open(target) as orig:
-  im=ImageOps.fit(orig.convert("RGB"),(1100,round(1100*h/w)),method=Image.Resampling.LANCZOS,centering=(.5,.48))
-  blob=BytesIO();im.save(blob,format="JPEG",quality=84,optimize=True);blob.seek(0)
+  im=ImageOps.fit(orig.convert("RGB"),(1200,round(1200*h/w)),method=Image.Resampling.LANCZOS,centering=(.5,.5))
+  # Gentle editorial treatment, no artificial compositing.
+  blob=BytesIO();im.save(blob,format="JPEG",quality=86,optimize=True);blob.seek(0)
   c.drawImage(ImageReader(blob),x,y,w,h,mask="auto")
+ # Subtle source credit outside image edge, with meaningful topic validation.
+ color(c,"#465347");c.setFillColor(HexColor("#ffffff"))
+ c.roundRect(x+w-198,y+4,192,15,3,fill=1,stroke=0)
+ label(c,"PHOTO · "+info["credit"]+" / UNSPLASH",x+w-194,y+8,6.5,False,MUTED)
+
 def page(c,num,section,accent=INK,disclaimer=True):
  color(c,PAPER);c.rect(0,0,W,H,stroke=0,fill=1)
  color(c,accent);c.rect(0,H-10,W,10,stroke=0,fill=1)
@@ -110,7 +135,7 @@ def cover(c,seq,theme,title,deck,icons,photo_index,accent):
  for t in title:
   color(c,INK);c.setFont("Times-Roman",48 if len(t)<23 else 43);c.drawString(45,y,t);y-=52
  para(c,deck,47,y-13,480,size=11.7,leading=19,tint=MUTED)
- photo(c,photo_index,45,298,505,210)
+ photo(c,COVERS[seq],45,298,505,210)
  # hairline frame on photo
  stroke(c,"#ffffff");c.setLineWidth(2);c.roundRect(45,298,505,210,2,stroke=1,fill=0)
  label(c,"EN ESTA GUÍA",47,267,8.4,True,accent)
@@ -126,7 +151,7 @@ def top_banner(c,index,title,section,accent):
  page(c,index,section,accent)
  color(c,INK);c.setFont("Times-Roman",34);c.drawString(44,740,title)
  stroke(c,"#bac8b9");c.line(44,720,550,720)
- photo(c,index+1,44,603,507,94)
+ photo(c,SECTIONS[section],44,603,507,94)
  return 582
 def card(c,x,y,w,h,title,detail,kind,accent=INK,light=SAGE,number=None):
  color(c,light);c.roundRect(x,y,w,h,12,fill=1,stroke=0)
@@ -314,9 +339,11 @@ for i,(title,desc,key) in enumerate([
  para(c,desc,109,y+27,417,9.6,13,INK,max_lines=2)
 label(c,"HECHO PARA TU VIDA REAL · Una guía flexible, no una regla.",46,111,9.5,True,BRICK)
 c.showPage();stats.append(finish(c,f,3))
+assert len(USED)==21,("Expected 21 unique photographs",len(USED))
+assert USED==set(PHOTO_DETAILS),("Missing or extra curated images",set(PHOTO_DETAILS)-USED)
 # Quality manifest; verify every guide exists, has multiple images, and page-level extractable text.
 assert len(stats)==5
 assert all(x["images"]>=1 for x in stats),stats
 qa=DEST/"editorial-qa.json"
-qa.write_text(json.dumps({"version":"editorial-v2","visuals":"repository photographs and PDF-native vector icons","guides":stats},ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+qa.write_text(json.dumps({"version":"editorial-v3","visuals":"21 curated subject-specific unique beauty shots plus PDF-native vector icons","guides":stats},ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
 print("EDITORIAL PDF REBUILD:",[(x["file"],x["pages"],x["images"],x["size"]) for x in stats])

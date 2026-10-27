@@ -31,6 +31,7 @@ jobs:
           python scripts/contrast_favicon.py
           python scripts/generate_quiz_gifs.py
           python scripts/build_cv.py
+          python scripts/fetch_pdf_beauty.py
           python scripts/enrich_gifts.py
           python scripts/inspect_gifts.py
           node --check assets/js/site.js
