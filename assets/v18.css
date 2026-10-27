@@ -279,3 +279,108 @@
 #rm-quiz-modal[data-active-question="variety"] .rm-v19-mobile-artboard{background:#4e6691}
 #rm-quiz-modal[data-active-question="rhythm"] .rm-v19-mobile-artboard{background:#7b4a53}
 #rm-quiz-modal[data-active-question="steady"] .rm-v19-mobile-artboard{background:#25362f}
+
+
+/* Rewards V1.3 — one permanent, prominent PDF CTA, accessible and responsive */
+#rm-quiz-modal[data-step="4"] .rm-modal-content{padding-top:clamp(30px,4vw,44px)}
+#rm-quiz-modal[data-step="4"] #rm-quiz-title{
+ font:400 clamp(43px,5vw,62px)/1.04 'Instrument Serif',Georgia,serif;
+ color:#50654f;margin:9px 0 9px;text-wrap:balance;
+}
+#rm-quiz-modal .rm-reward-kicker{font:700 10px/1.4 'Geist',Arial,sans-serif;letter-spacing:.15em;color:#9c755f}
+#rm-quiz-modal .rm-reward-intro{font:400 13px/1.65 'Geist',Arial,sans-serif;color:#69786a;max-width:52ch;margin:0 0 12px}
+#rm-quiz-modal[data-step="4"] .rm-gift-card{
+ grid-template-columns:minmax(0,1.1fr) minmax(0,.83fr);
+ column-gap:clamp(17px,3vw,30px);row-gap:clamp(14px,2vw,23px);
+ padding:clamp(18px,2.7vw,29px);margin:15px 0 16px;
+}
+#rm-quiz-modal[data-step="4"] .rm-gift-card .rm-gift-subtitle{font-size:clamp(35px,4vw,47px);margin-bottom:13px}
+#rm-quiz-modal[data-step="4"] .rm-gift-card .rm-gift-copy p{font-size:12.5px;line-height:1.65;margin-bottom:10px}
+#rm-quiz-modal[data-step="4"] .rm-gift-card .rm-gift-copy strong{margin:9px 0 5px}
+#rm-quiz-modal[data-step="4"] .rm-icon-document{width:min(95%,165px);padding:17px;gap:15px}
+#rm-quiz-modal[data-step="4"] .rm-icon-document>svg{width:63px;height:63px}
+#rm-quiz-modal .rm-gift-card .rm-reward-download.qa-gift-action{
+ display:flex;flex-direction:column;grid-column:1/-1;min-width:0;
+ border-top:1px solid #b4c3b2;margin:0;padding-top:15px;
+}
+#rm-quiz-modal .rm-gift-card .rm-reward-download-label{
+ margin:0 0 10px!important;color:#99745c!important;letter-spacing:.15em;
+ font:700 10px/1.4 'Geist',Arial,sans-serif!important;
+}
+#rm-quiz-modal .rm-gift-card .rm-reward-cta.rm-pdf-download{
+ display:grid!important;grid-template-columns:46px minmax(0,1fr) 30px;align-items:center;
+ gap:14px;width:100%;min-width:0;box-sizing:border-box;min-height:81px;
+ background:#2f533f;color:#fffdf6;border:1px solid #2f533f;border-radius:15px;
+ padding:13px 19px;white-space:normal;text-decoration:none;text-align:left;
+ box-shadow:0 5px 0 #254b3225,0 17px 27px #1d46251b;
+ transition:background .22s ease,transform .22s ease,box-shadow .22s ease;
+}
+#rm-quiz-modal .rm-gift-card .rm-reward-cta-icon{
+ display:grid;place-items:center;width:46px;height:46px;
+ border:1px solid #e6f0e780;border-radius:50%;color:inherit;
+}
+#rm-quiz-modal .rm-gift-card .rm-reward-cta-icon svg{width:23px;height:23px}
+#rm-quiz-modal .rm-gift-card .rm-reward-cta-copy{display:flex;flex-direction:column;gap:4px;min-width:0}
+#rm-quiz-modal .rm-gift-card .rm-reward-cta-title{
+ font:700 clamp(14px,1.9vw,17px)/1.29 'Geist',Arial,sans-serif;color:inherit;
+}
+#rm-quiz-modal .rm-gift-card .rm-reward-cta-meta{
+ color:#e0ecdf;font:400 10px/1.45 'Geist',Arial,sans-serif;
+}
+#rm-quiz-modal .rm-gift-card .rm-reward-cta-arrow{
+ color:inherit;text-align:center;font:400 25px/1 'Geist',Arial,sans-serif;
+ transition:transform .22s ease;
+}
+#rm-quiz-modal .rm-gift-card .rm-reward-cta:hover,
+#rm-quiz-modal .rm-gift-card .rm-reward-cta:focus-visible{
+ background:#1e412d;border-color:#1e412d;transform:translateY(-3px);
+ box-shadow:0 9px 0 #254b321c,0 19px 33px #21472f38;
+}
+#rm-quiz-modal .rm-gift-card .rm-reward-cta:focus-visible{outline:3px solid #ca937b;outline-offset:3px}
+#rm-quiz-modal .rm-gift-card .rm-reward-cta:hover .rm-reward-cta-arrow{transform:translate(3px,-3px)}
+#rm-quiz-modal .rm-gift-card .rm-reward-reassurance{
+ margin:10px 0 0!important;font:400 11px/1.5 'Geist',Arial,sans-serif!important;
+ color:#627664!important;
+}
+#rm-quiz-modal .rm-gift-card[data-gift=steady] .rm-reward-download{border-top-color:#899c88}
+#rm-quiz-modal .rm-gift-card[data-gift=steady] .rm-reward-download-label{color:#e5c8ad!important}
+#rm-quiz-modal .rm-gift-card[data-gift=steady] .rm-reward-reassurance{color:#dfebdc!important}
+#rm-quiz-modal .rm-gift-card[data-gift=steady] .rm-reward-cta.rm-pdf-download{
+ background:#f2efe5;border-color:#f2efe5;color:#30523c;
+}
+#rm-quiz-modal .rm-gift-card[data-gift=steady] .rm-reward-cta .rm-reward-cta-meta{color:#5d725e}
+#rm-quiz-modal .rm-gift-card[data-gift=steady] .rm-reward-cta .rm-reward-cta-icon{border-color:#89a08b}
+#rm-quiz-modal .rm-gift-card[data-gift=steady] .rm-reward-cta:hover{background:#fffdf8;border-color:#fffdf8}
+#rm-quiz-modal[data-step="4"] .rm-modal-legal{margin:12px 0 2px}
+#rm-quiz-modal[data-step="4"] .rm-gift-controls{margin-top:6px}
+@media(max-width:620px){
+ #rm-quiz-modal[data-step="4"] .rm-modal-content{padding-top:65px}
+ #rm-quiz-modal[data-step="4"] #rm-quiz-title{font-size:clamp(40px,10vw,51px)}
+ #rm-quiz-modal[data-step="4"] .rm-gift-card{grid-template-columns:minmax(0,1fr);gap:15px;padding:18px}
+ #rm-quiz-modal[data-step="4"] .rm-gift-cover{flex-direction:row;gap:16px;justify-content:center}
+ #rm-quiz-modal[data-step="4"] .rm-icon-document{
+  width:105px;max-width:105px;aspect-ratio:1;padding:11px;gap:6px;margin:0
+ }
+ #rm-quiz-modal[data-step="4"] .rm-icon-document>svg{width:46px;height:46px}
+ #rm-quiz-modal[data-step="4"] .rm-icon-motifs{display:none}
+ #rm-quiz-modal .rm-gift-card .rm-reward-cta.rm-pdf-download{
+  grid-template-columns:35px minmax(0,1fr) 18px;gap:10px;
+  min-height:74px;padding:12px;border-radius:12px;
+ }
+ #rm-quiz-modal .rm-gift-card .rm-reward-cta-icon{width:35px;height:35px}
+ #rm-quiz-modal .rm-gift-card .rm-reward-cta-icon svg{width:19px;height:19px}
+ #rm-quiz-modal .rm-gift-card .rm-reward-cta-title{font-size:13px}
+ #rm-quiz-modal .rm-gift-card .rm-reward-cta-meta{font-size:9px}
+ #rm-quiz-modal .rm-gift-card .rm-reward-cta-arrow{font-size:19px}
+}
+@media(max-width:355px){
+ #rm-quiz-modal .rm-gift-card .rm-reward-cta.rm-pdf-download{
+  grid-template-columns:30px minmax(0,1fr) 16px;gap:8px;padding:10px
+ }
+ #rm-quiz-modal .rm-gift-card .rm-reward-cta-icon{width:29px;height:29px}
+ #rm-quiz-modal .rm-gift-card .rm-reward-cta-title{font-size:12px}
+}
+@media(prefers-reduced-motion:reduce){
+ #rm-quiz-modal .rm-gift-card .rm-reward-cta,
+ #rm-quiz-modal .rm-gift-card .rm-reward-cta-arrow{transition:none!important;transform:none!important}
+}
