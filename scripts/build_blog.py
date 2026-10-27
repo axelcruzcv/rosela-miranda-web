@@ -56,7 +56,7 @@ def to_article(p, day):
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../assets/styles.css"><link rel="stylesheet" href="../../assets/v3.css"><link rel="stylesheet" href="../../assets/v4.css?v=mobile6">
 <script type="module" src="../../assets/js/site.js?v=gifts13"></script><script type="module" src="../../assets/js/v3.js?v=mobile6"></script>
-<link rel="stylesheet" href="../../assets/v17.css?v=17"><script type="module" src="../../assets/js/v17.js?v=17"></script><link rel="stylesheet" href="../../assets/v18.css?v=20261027v12"><script type="module" src="../../assets/js/v18.js?v=20261027v12"></script><title>{title} | Rosela Miranda</title></head><body class="v3-site">
+<link rel="stylesheet" href="../../assets/v17.css?v=17"><script type="module" src="../../assets/js/v17.js?v=17"></script><link rel="stylesheet" href="../../assets/v18.css?v=20261027v13"><script type="module" src="../../assets/js/v18.js?v=20261027v12"></script><title>{title} | Rosela Miranda</title></head><body class="v3-site">
 <a class="skip-link" href="#contenido">Saltar al contenido</a>
 <header class="v3-header" data-header>
 <a class="v3-brand" href="../../" aria-label="Rosela Miranda, inicio"><img class="rm-original-logo" src="../../assets/images/rosela-monogram.png" width="48" height="62" decoding="async" alt=""><span class="v3-wordmark"><span>Rosela</span> Miranda</span></a>
