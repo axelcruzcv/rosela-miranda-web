@@ -84,8 +84,7 @@ const gifts = {
  steady:{title:'A tu propio ritmo',description:'No todos los cambios necesitan ser grandes para que valga la pena intentarlos. La constancia se construye con acciones pequeñas que puedes repetir.',tip:'Elige una acción tan sencilla que puedas repetirla incluso en un día ocupado.',reward:'Reto de 7 días: los 5 pilares de la buena salud',file:'RM_Regalo_Reto7Dias.pdf'}
 };
 const bonusFile='RM_Bonus_ComerFuera.pdf';
-// The official gift and bonus PDFs must be uploaded before offering their downloads.
-// Until then the photo-rich on-screen tip can be saved honestly as an illustrative PNG.
+// All five downloadable PDFs are now published; quiz answers stay in memory.
 let step = 0, selected = [], gift = null, giftId = 'plan', introDone = false;
 const screen = document.getElementById('rm-quiz-screen');
 const progress = document.getElementById('rm-quiz-progress');
@@ -152,8 +151,9 @@ function renderGift(){
   // Approved rule: among tied icons, question four breaks the tie.
   const code=tied.includes(selected[3])?selected[3]:tied[0];
   gift=gifts[code];giftId=code;
-  const eyebrow=document.createElement('p');eyebrow.className='eyebrow';eyebrow.textContent='UN DETALLE DE ROSELA PARA TI';
-  const heading=document.createElement('h2');heading.id='rm-quiz-title';heading.textContent='Tu tip.';
+  const eyebrow=document.createElement('p');eyebrow.className='eyebrow rm-reward-kicker';eyebrow.textContent='COMPLETASTE TU TEST DE HÁBITOS';
+  const heading=document.createElement('h2');heading.id='rm-quiz-title';heading.textContent='¡Tu regalo está listo!';
+  const welcome=document.createElement('p');welcome.className='rm-reward-intro';welcome.textContent='Un detalle de Rosela, elegido para que empieces a cuidarte a tu ritmo.';
   const giftSubtitle=document.createElement('h3');giftSubtitle.className='rm-gift-subtitle';giftSubtitle.textContent=gift.title;
   const wrap=document.createElement('div');wrap.className='rm-gift-card';
   const emblem=document.createElement('span');emblem.className='rm-gift-symbol';emblem.textContent=({plan:'◫',variety:'✿',rhythm:'◷',steady:'✦'})[giftId];wrap.dataset.gift=giftId;
@@ -168,14 +168,30 @@ function renderGift(){
   const caption=document.createElement('figcaption');caption.textContent='TU GUÍA PERSONALIZADA';
   preview.append(previewImg,caption);
   wrap.append(copy,preview);
-  const note=document.createElement('p');note.className='rm-modal-legal';note.textContent='Este regalo es educativo y no evalúa tu salud ni sustituye una consulta.';
+  const note=document.createElement('p');note.className='rm-modal-legal';note.textContent='Este recurso es educativo y no evalúa tu salud ni sustituye una consulta.';
   
 
   const controls=document.createElement('div');controls.className='rm-gift-controls';
   
-  const save=document.createElement('a');save.className='button button-primary rm-pdf-download';
+  // Single download per reward, always inside the card — no optional script relocation.
+  const save=document.createElement('a');save.className='button button-primary rm-pdf-download rm-reward-cta';
   save.href=new URL('../gifts/'+gift.file,import.meta.url).href;save.download=gift.file;
-  save.textContent=({plan:'Descargar mi guía de meal prep',variety:'Descargar mi recetario',rhythm:'Descargar mis rituales',steady:'Descargar mi reto de 7 días'})[giftId]+' ↓';
+  const rewardName=({plan:'Descargar mi guía de meal prep',variety:'Descargar mi recetario saludable',rhythm:'Descargar mis rituales de bienestar',steady:'Descargar mi reto de 7 días'})[giftId];
+  const rewardPages=({plan:4,variety:6,rhythm:4,steady:4})[giftId];
+  save.setAttribute('aria-label',rewardName+', PDF gratuito de '+rewardPages+' páginas');
+  const saveIcon=document.createElement('span');saveIcon.className='rm-reward-cta-icon';saveIcon.setAttribute('aria-hidden','true');
+  saveIcon.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m-5-5 5 5 5-5M4 17v4h16v-4"/></svg>';
+  const saveCopy=document.createElement('span');saveCopy.className='rm-reward-cta-copy';
+  const saveTitle=document.createElement('span');saveTitle.className='rm-reward-cta-title';saveTitle.textContent=rewardName;
+  const saveMeta=document.createElement('small');saveMeta.className='rm-reward-cta-meta';saveMeta.textContent='Tu PDF de regalo · '+rewardPages+' páginas · gratis';
+  saveCopy.append(saveTitle,saveMeta);
+  const saveArrow=document.createElement('span');saveArrow.className='rm-reward-cta-arrow';saveArrow.setAttribute('aria-hidden','true');saveArrow.textContent='↗';
+  save.append(saveIcon,saveCopy,saveArrow);
+  const download=document.createElement('div');download.className='rm-reward-download qa-gift-action';
+  const actionTitle=document.createElement('p');actionTitle.className='rm-reward-download-label';actionTitle.textContent='TU OBSEQUIO PERSONALIZADO';
+  const reassurance=document.createElement('p');reassurance.className='rm-reward-reassurance';reassurance.textContent='Es tuyo. Sin registro ni correo, para que lo tengas a mano.';
+  download.append(actionTitle,save,reassurance);
+  wrap.append(download);
   const again=document.createElement('button');again.type='button';again.className='rm-quiet';again.textContent='Volver a empezar';again.addEventListener('click',resetQuiz);
   const contact=document.createElement('button');contact.type='button';contact.className='rm-quiet';contact.textContent='Escribirle a Rosela ↗';
   contact.addEventListener('click',()=>openModal(contactModal));
@@ -187,7 +203,7 @@ function renderGift(){
   const bonusText=document.createElement('p');bonusText.textContent='Comer saludable fuera de casa: una guía práctica para llevar contigo.';
   const bonusLink=document.createElement('a');bonusLink.className='rm-bonus-link';bonusLink.textContent='Descargar bonus PDF ↗';bonusLink.href=new URL('../gifts/'+bonusFile,import.meta.url).href;bonusLink.download=bonusFile;
   bonusCopy.append(bonusLabel,bonusText,bonusLink);bonus.append(bonusThumb,bonusCopy);
-  controls.append(save,again,contact);screen.append(eyebrow,heading,wrap,bonus,note,controls);
+  controls.append(again,contact);screen.append(eyebrow,heading,welcome,wrap,bonus,note,controls);
   focusQuizHeading();
 }
 // All takeaways are provided as editorial PDF files; legacy PNG export removed.
