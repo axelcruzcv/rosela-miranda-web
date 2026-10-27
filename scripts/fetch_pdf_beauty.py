@@ -3,7 +3,7 @@
 
 Selection reviewed for topic-level relevance. A photo is used exactly once.
 Files are saved in the repository to avoid unpredictable downloads by PDF readers.
-Only public Unsplash free-license photographs; no Unsplash+.
+20 public Unsplash free-license photographs and one custom editorial image.
 """
 from pathlib import Path
 from urllib.request import Request, urlopen
@@ -37,12 +37,27 @@ CATALOG={
  "challenge_reflection":("photo-1752567068743-d17a7b33b74e","Keila Hötzel","Libreta y flores para reflexión","Reto siete días, registro"),
  "bonus_cover":("photo-1770678724766-08268bbc61e2","Brelyn Bashrum","Mesa compartida con comida italiana","Comer fuera, portada"),
  "bonus_tips":("photo-1746783840967-738ea85b0f25","alexanderafan","Plato servido con salmón y vegetales","Comer fuera, seis consejos"),
- "bonus_venues":("photo-1613409385222-3d0decb6742a","Tai's Captures","Tacos mexicanos servidos","Comer fuera, restaurantes"),
+ "bonus_venues":("rosela-custom-20261027","Rosela Miranda","Pescado asado con nopales, frijoles de la olla y guacamole, sin tortillas","Comer fuera, restaurantes"),
 }
 assert len(CATALOG)==21
 assert len(set(row[0] for row in CATALOG.values()))==21
 def process(item):
  key,(id,credit,topic,page)=item
+ if key=="bonus_venues":
+  # One dedicated, locally committed editorial illustration, not an Unsplash photo.
+  dest=OUT/"bonus_mexican_fish.webp"
+  if not dest.is_file():raise FileNotFoundError("Required plated fish photograph missing")
+  with Image.open(dest) as im:
+   im.verify()
+  with Image.open(dest) as im:
+   if im.width<500 or im.height<95:raise ValueError("Insufficient beauty-shot dimensions")
+   size=list(im.size)
+  return {"key":key,"path":str(dest.relative_to(ROOT)),"credit":"Rosela Miranda",
+          "topic":topic,"page":page,
+          "source":"custom generated editorial illustrative image",
+          "unsplash_photo_id":id,"dimensions":size,
+          "sha256":hashlib.sha256(dest.read_bytes()).hexdigest(),
+          "bytes":dest.stat().st_size}
  dest=OUT/(key+".jpg")
  if dest.is_file() and dest.stat().st_size>25000:
   raw=dest.read_bytes()
@@ -81,7 +96,7 @@ with ThreadPoolExecutor(max_workers=5) as pool:
   row=future.result();records.append(row);print("PHOTO READY",row["key"],row["bytes"],"bytes",flush=True)
 records.sort(key=lambda x:list(CATALOG).index(x["key"]))
 assert len(set(r["sha256"] for r in records))==21,"Duplicate beauty photographs"
-manifest={"edition":"20261027_V1.2","license":"Unsplash License (free photographs)",
+manifest={"edition":"20261027_V1.2","license":"20 Unsplash free-license photos + 1 custom illustrative image",
           "photos":records,"unique_assets":len(records),"repeated_assets":0}
 (OUT/"manifest.json").write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
 print("EDITORIAL SOURCE AUDIT: 21/21 unique, matched page subjects, no repeated image",flush=True)
