@@ -273,3 +273,9 @@
  .v10-professional .v10-training-photo{order:1;height:160px;max-height:160px}
  #rm-quiz-modal .rm-v19-mobile-artboard{width:67px;height:67px;margin:6px 0 11px}
 }
+
+/* v1.2 - monochrome mobile illustration always rests on the matching panel */
+#rm-quiz-modal .rm-v19-mobile-artboard{background:#d7ded3}
+#rm-quiz-modal[data-active-question="variety"] .rm-v19-mobile-artboard{background:#4e6691}
+#rm-quiz-modal[data-active-question="rhythm"] .rm-v19-mobile-artboard{background:#7b4a53}
+#rm-quiz-modal[data-active-question="steady"] .rm-v19-mobile-artboard{background:#25362f}
