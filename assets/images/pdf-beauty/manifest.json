@@ -1,6 +1,6 @@
 {
   "edition": "20261027_V1.2",
-  "license": "Unsplash License (free photographs)",
+  "license": "20 Unsplash free-license photos + 1 custom illustrative image",
   "photos": [
     {
       "key": "meal_cover",
@@ -304,18 +304,18 @@
     },
     {
       "key": "bonus_venues",
-      "path": "assets/images/pdf-beauty/bonus_venues.jpg",
-      "credit": "Tai's Captures",
-      "topic": "Tacos mexicanos servidos",
+      "path": "assets/images/pdf-beauty/bonus_mexican_fish.webp",
+      "credit": "Rosela Miranda",
+      "topic": "Pescado asado con nopales, frijoles de la olla y guacamole, sin tortillas",
       "page": "Comer fuera, restaurantes",
-      "source": "https://images.unsplash.com/photo-1613409385222-3d0decb6742a",
-      "unsplash_photo_id": "photo-1613409385222-3d0decb6742a",
+      "source": "custom generated editorial illustrative image",
+      "unsplash_photo_id": "rosela-custom-20261027",
       "dimensions": [
-        1450,
-        967
+        560,
+        110
       ],
-      "sha256": "1bc56bf42b1ee6ce520933456dc84c63e5a74e8113d4c4de81cef91ec9322938",
-      "bytes": 248967
+      "sha256": "6151ae768ef50e268f9fdde3f3b57d5bd1f29822522bd93a09e1a2af9b8dfceb",
+      "bytes": 7710
     }
   ],
   "unique_assets": 21,
