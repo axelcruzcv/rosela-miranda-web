@@ -113,7 +113,10 @@ def photo(c,key,x,y,w,h):
  # Subtle source credit outside image edge, with meaningful topic validation.
  color(c,"#465347");c.setFillColor(HexColor("#ffffff"))
  c.roundRect(x+w-198,y+4,192,15,3,fill=1,stroke=0)
- label(c,"PHOTO · "+info["credit"]+" / UNSPLASH",x+w-194,y+8,6.5,False,MUTED)
+ if key=="bonus_venues":
+  label(c,"IMAGEN ILUSTRATIVA · ROSELA MIRANDA",x+w-194,y+8,6.5,False,MUTED)
+ else:
+  label(c,"PHOTO · "+info["credit"]+" / UNSPLASH",x+w-194,y+8,6.5,False,MUTED)
 
 def page(c,num,section,accent=INK,disclaimer=True):
  color(c,PAPER);c.rect(0,0,W,H,stroke=0,fill=1)
